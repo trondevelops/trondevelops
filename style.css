@@ -8,9 +8,10 @@
 body {
   background: #000;
   color: #fff;
+  overflow: hidden;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -18,46 +19,76 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
 }
 
-/* Animated glowing background */
+/* GRID BACKGROUND */
 
-.hero::before {
-  content: "";
+.grid {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
-  animation: move 8s linear infinite;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
 }
 
-@keyframes move {
-  0% { transform: translate(-25%, -25%); }
-  50% { transform: translate(25%, 25%); }
-  100% { transform: translate(-25%, -25%); }
+/* GLOW EFFECTS */
+
+.glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  filter: blur(50px);
+  z-index: 1;
 }
 
-/* Content */
+.glow1 {
+  top: 10%;
+  left: 20%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow2 {
+  bottom: 10%;
+  right: 20%;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
+  100% { transform: translateY(0px); }
+}
+
+/* CONTENT */
 
 .content {
   text-align: center;
   z-index: 2;
-  max-width: 600px;
+  max-width: 650px;
   padding: 20px;
 }
 
+/* TITLE */
+
 h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px #fff, 0 0 30px rgba(255,255,255,0.5);
 }
+
+/* TAGLINE */
 
 .tagline {
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #ccc;
 }
+
+/* DESCRIPTION */
 
 .desc {
   margin-top: 20px;
@@ -66,21 +97,21 @@ h1 {
   line-height: 1.6;
 }
 
-/* Button */
+/* BUTTON */
 
 .btn {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 28px;
+  margin-top: 35px;
+  padding: 14px 30px;
   border: 1px solid #fff;
   color: #fff;
   text-decoration: none;
   transition: 0.3s ease;
-  position: relative;
+  letter-spacing: 1px;
 }
 
 .btn:hover {
   background: #fff;
   color: #000;
-  box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.5);
 }
