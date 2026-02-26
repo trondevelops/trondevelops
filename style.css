@@ -280,3 +280,22 @@ body::after {
   top: 50%;
   left: 50%;
 }
+/* ABOUT PAGE */
+
+.about-page {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.about-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #fff;
+}
+
+.about-page p {
+  max-width: 700px;
+  margin: 15px auto;
+  color: #aaa;
+  line-height: 1.7;
+}
