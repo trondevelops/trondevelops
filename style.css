@@ -1,14 +1,57 @@
+/* RESET + FONT */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: #000;
   color: #fff;
-  overflow: hidden;
+}
+
+/* NAVBAR (GLASS EFFECT) */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
 }
 
 /* HERO */
@@ -19,9 +62,10 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* GRID BACKGROUND */
+/* GRID */
 
 .grid {
   position: absolute;
@@ -31,18 +75,16 @@ body {
     linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
-  z-index: 1;
 }
 
-/* GLOW EFFECTS */
+/* GLOW */
 
 .glow {
   position: absolute;
   width: 300px;
   height: 300px;
   background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-  filter: blur(50px);
-  z-index: 1;
+  filter: blur(60px);
 }
 
 .glow1 {
@@ -72,23 +114,36 @@ body {
   padding: 20px;
 }
 
+/* FADE ANIMATION */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* TITLE */
 
 h1 {
   font-size: 3.5rem;
   letter-spacing: 3px;
-  text-shadow: 0 0 15px #fff, 0 0 30px rgba(255,255,255,0.5);
+  text-shadow: 0 0 15px #fff, 0 0 40px rgba(255,255,255,0.6);
 }
 
-/* TAGLINE */
+/* TEXT */
 
 .tagline {
   margin-top: 10px;
   font-size: 1.3rem;
   color: #ccc;
 }
-
-/* DESCRIPTION */
 
 .desc {
   margin-top: 20px;
@@ -115,41 +170,14 @@ h1 {
   color: #000;
   box-shadow: 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.5);
 }
-/* NAVBAR */
 
-.navbar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3;
+/* SECTIONS */
+
+section {
+  margin-bottom: 60px;
 }
 
-.logo {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #ccc;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #fff;
-}
-/* PROJECTS PAGE */
+/* PROJECTS */
 
 .projects {
   padding: 120px 20px;
@@ -173,12 +201,18 @@ h1 {
 .project-card:hover {
   border-color: #fff;
   box-shadow: 0 0 15px #fff;
+  transform: scale(1.03);
 }
 
 .project-card h3 {
   margin-bottom: 10px;
 }
-/* CONTACT PAGE */
+
+.project-card p {
+  color: #aaa;
+}
+
+/* CONTACT */
 
 .contact {
   padding: 120px 20px;
@@ -212,12 +246,10 @@ h1 {
   background: #0a0a0a;
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
-  outline: none;
 }
 
 .contact-form textarea {
   height: 120px;
-  resize: none;
 }
 
 .contact-form button {
@@ -235,18 +267,16 @@ h1 {
   box-shadow: 0 0 15px #fff;
 }
 
-/* ALT CONTACT */
+/* CURSOR GLOW */
 
-.alt-contact {
-  margin-top: 20px;
-  color: #aaa;
-}
-
-.alt-contact a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.project-card p {
-  color: #aaa;
+body::after {
+  content: "";
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
