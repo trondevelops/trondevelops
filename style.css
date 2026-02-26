@@ -318,3 +318,95 @@ h1 {
   z-index: 999;
   transition: 0.05s linear;
 }
+/* SERVICES PAGE */
+
+.services-hero {
+  padding: 120px 20px 60px;
+  text-align: center;
+}
+
+.services-hero h1 {
+  font-size: 2.8rem;
+  text-shadow: 0 0 10px #fff;
+}
+
+.services-hero p {
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* SERVICE CARDS */
+
+.services-section {
+  padding: 40px 20px;
+}
+
+.service-card {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  border-color: #fff;
+  box-shadow: 0 0 15px #fff;
+  transform: scale(1.02);
+}
+
+.service-card h2 {
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.service-card ul {
+  text-align: left;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+/* WHY SECTION */
+
+.why {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.why h2 {
+  margin-bottom: 30px;
+}
+
+.why-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.why-grid div {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 15px 20px;
+  transition: 0.3s;
+}
+
+.why-grid div:hover {
+  border-color: #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+/* CTA */
+
+.cta {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta p {
+  color: #aaa;
+  margin: 10px 0 20px;
+}
