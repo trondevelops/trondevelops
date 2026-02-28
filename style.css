@@ -11,21 +11,19 @@ html {
   scroll-behavior: smooth;
 }
 
-/* BODY FIX (prevents navbar overlap) */
-
 body {
   background: #000;
   color: #fff;
   padding-top: 80px;
 }
 
-/* NAVBAR */
+/* NAVBAR (DESKTOP FIRST) */
 
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 30px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +40,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-links a {
@@ -81,21 +79,21 @@ body {
 
 .glow {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
   filter: blur(60px);
 }
 
-.glow1 { top: 10%; left: 10%; }
-.glow2 { bottom: 10%; right: 10%; }
+.glow1 { top: 10%; left: 20%; }
+.glow2 { bottom: 10%; right: 20%; }
 
 /* CONTENT */
 
 .content {
   position: relative;
   text-align: center;
-  max-width: 600px;
+  max-width: 650px;
 }
 
 /* TEXT */
@@ -130,10 +128,17 @@ h1 {
   color: #000;
 }
 
+/* SECTIONS */
+
+section {
+  max-width: 1100px;
+  margin: auto;
+}
+
 /* SKILLS */
 
 .skills {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -141,18 +146,18 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .skill {
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* PROJECTS */
 
 .projects {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -166,8 +171,8 @@ h1 {
 /* SERVICES */
 
 .services-hero {
+  padding: 100px 20px;
   text-align: center;
-  padding: 80px 20px;
 }
 
 .service-card {
@@ -180,7 +185,7 @@ h1 {
 /* CONTACT */
 
 .contact {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -189,18 +194,18 @@ h1 {
   margin: auto;
 }
 
-/* MOBILE FIX */
+/* ================= MOBILE ONLY ================= */
 
 @media (max-width: 768px) {
 
   .navbar {
-    flex-direction: column;
-    gap: 10px;
+    padding: 15px 20px;
   }
 
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
   }
 
   h1 {
@@ -209,6 +214,11 @@ h1 {
 
   .skills-grid {
     flex-direction: column;
+  }
+
+  .project-card,
+  .service-card {
+    width: 90%;
   }
 
 }
