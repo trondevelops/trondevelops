@@ -11,25 +11,31 @@ html {
   scroll-behavior: smooth;
 }
 
+/* BODY */
+
 body {
   background: #000;
   color: #fff;
-  padding-top: 80px;
+  padding-top: 80px; /* prevents navbar overlap */
 }
 
-/* NAVBAR (DESKTOP FIRST) */
+/* NAVBAR */
 
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  padding: 20px 40px;
+  height: 70px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 0 30px;
   z-index: 1000;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
 }
 
@@ -56,11 +62,11 @@ body {
 /* HERO */
 
 .hero {
-  min-height: 100vh;
-  padding: 40px 20px;
+  min-height: calc(100vh - 70px); /* FIXED */
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
@@ -94,6 +100,7 @@ body {
   position: relative;
   text-align: center;
   max-width: 650px;
+  padding: 20px;
 }
 
 /* TEXT */
@@ -110,6 +117,7 @@ h1 {
 .desc {
   margin-top: 20px;
   color: #aaa;
+  line-height: 1.6;
 }
 
 /* BUTTON */
@@ -128,17 +136,18 @@ h1 {
   color: #000;
 }
 
-/* SECTIONS */
+/* SECTIONS (IMPORTANT FIX) */
 
 section {
+  width: 100%;
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 80px 20px;
 }
 
 /* SKILLS */
 
 .skills {
-  padding: 100px 20px;
   text-align: center;
 }
 
@@ -157,7 +166,6 @@ section {
 /* PROJECTS */
 
 .projects {
-  padding: 100px 20px;
   text-align: center;
 }
 
@@ -171,7 +179,6 @@ section {
 /* SERVICES */
 
 .services-hero {
-  padding: 100px 20px;
   text-align: center;
 }
 
@@ -185,7 +192,6 @@ section {
 /* CONTACT */
 
 .contact {
-  padding: 100px 20px;
   text-align: center;
 }
 
@@ -194,12 +200,15 @@ section {
   margin: auto;
 }
 
-/* ================= MOBILE ONLY ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
   .navbar {
-    padding: 15px 20px;
+    height: auto;
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .nav-links {
@@ -214,11 +223,12 @@ section {
 
   .skills-grid {
     flex-direction: column;
+    align-items: center;
   }
 
   .project-card,
   .service-card {
-    width: 90%;
+    width: 100%;
   }
 
 }
