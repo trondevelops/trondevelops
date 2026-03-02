@@ -315,3 +315,65 @@ h2 {
   }
 
 }
+/* ===== INSANE BACKGROUND ===== */
+
+body {
+  background: linear-gradient(270deg, #000, #0a0a0a, #000);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CURSOR GLOW ===== */
+
+.cursor-glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  transition: 0.08s linear;
+}
+
+/* ===== GLASS NAVBAR ===== */
+
+.navbar {
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.6);
+}
+
+/* ===== MAGNETIC BUTTON ===== */
+
+.btn {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== SMOOTH FADE-IN ===== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PARALLAX GLOW ===== */
+
+.glow {
+  transition: transform 0.2s ease;
+}
