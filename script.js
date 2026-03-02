@@ -1,14 +1,34 @@
-// CURSOR GLOW
-const glow = document.createElement("div");
-glow.classList.add("cursor-glow");
-document.body.appendChild(glow);
+// CUSTOM CURSOR
+const dot = document.createElement("div");
+dot.classList.add("cursor-dot");
+
+const outline = document.createElement("div");
+outline.classList.add("cursor-outline");
+
+document.body.appendChild(dot);
+document.body.appendChild(outline);
 
 document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
+  dot.style.left = e.clientX + "px";
+  dot.style.top = e.clientY + "px";
+
+  outline.style.left = e.clientX + "px";
+  outline.style.top = e.clientY + "px";
 });
 
-// SCROLL ANIMATION
+// SCROLL PROGRESS
+const progress = document.createElement("div");
+progress.classList.add("progress-bar");
+document.body.appendChild(progress);
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const height = document.body.scrollHeight - window.innerHeight;
+  const scrolled = (scrollTop / height) * 100;
+  progress.style.width = scrolled + "%";
+});
+
+// FADE IN
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -17,21 +37,19 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-document.querySelectorAll(".fade-in").forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-// MAGNETIC BUTTON EFFECT
-const btn = document.querySelector(".btn");
+// TYPING EFFECT
+const text = "Modern Websites. Clean Code. Real Results.";
+let i = 0;
+const speed = 50;
 
-btn.addEventListener("mousemove", (e) => {
-  const rect = btn.getBoundingClientRect();
-  const x = e.clientX - rect.left - rect.width / 2;
-  const y = e.clientY - rect.top - rect.height / 2;
+function typeEffect() {
+  if (i < text.length) {
+    document.querySelector(".typing").textContent += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, speed);
+  }
+}
 
-  btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-});
-
-btn.addEventListener("mouseleave", () => {
-  btn.style.transform = "translate(0,0)";
-});
+typeEffect();
