@@ -377,3 +377,80 @@ body {
 .glow {
   transition: transform 0.2s ease;
 }
+/* ===== CUSTOM CURSOR DOT ===== */
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 1001;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-outline {
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(255,255,255,0.5);
+  position: fixed;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #fff;
+  width: 0%;
+  z-index: 2000;
+}
+
+/* ===== 3D TILT EFFECT ===== */
+
+.skill, .project-card, .service-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+}
+
+.skill:hover, .project-card:hover, .service-card:hover {
+  transform: rotateX(5deg) rotateY(5deg) scale(1.05);
+}
+
+/* ===== TYPING EFFECT ===== */
+
+.typing {
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* ===== SMOOTH LINK HOVER ===== */
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
