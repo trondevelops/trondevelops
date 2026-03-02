@@ -1,5 +1,14 @@
-// SCROLL ANIMATION
+// CURSOR GLOW
+const glow = document.createElement("div");
+glow.classList.add("cursor-glow");
+document.body.appendChild(glow);
 
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
+// SCROLL ANIMATION
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -8,18 +17,21 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-document.querySelectorAll(".fade-in").forEach((el) => {
+document.querySelectorAll(".fade-in").forEach(el => {
   observer.observe(el);
-});;
+});
 
+// MAGNETIC BUTTON EFFECT
+const btn = document.querySelector(".btn");
 
-// CURSOR GLOW
+btn.addEventListener("mousemove", (e) => {
+  const rect = btn.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
 
-const glow = document.createElement("div");
-glow.classList.add("cursor-glow");
-document.body.appendChild(glow);
+  btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+});
 
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
+btn.addEventListener("mouseleave", () => {
+  btn.style.transform = "translate(0,0)";
 });
