@@ -1,61 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Projects - TronDevelops</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Tron Develops projects — Trend Mosaic Media, Echoverge, and client work by Uzaid Bhat."/>
+<title>Projects — Tron Develops</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:48px; }
+.filter-btn {
+  padding:8px 20px; border-radius:3px; cursor:none;
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+  letter-spacing:0.12em; text-transform:uppercase;
+  border:1px solid var(--border); color:var(--muted2);
+  background:transparent; transition:all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(168,255,62,0.07); }
+
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; }
+.proj-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  overflow:hidden; position:relative;
+  transition:transform 0.35s, box-shadow 0.35s, border-color 0.35s; cursor:none;
+}
+.proj-card::after { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--accent),transparent); transform:scaleX(0); transform-origin:center; transition:transform 0.4s; }
+.proj-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(0,0,0,0.45); border-color:rgba(168,255,62,0.25); }
+.proj-card:hover::after { transform:scaleX(1); }
+
+.proj-thumb {
+  height:190px; display:flex; align-items:center; justify-content:center;
+  font-size:3.5rem; position:relative; overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.proj-thumb .bg-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(168,255,62,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(168,255,62,0.05) 1px,transparent 1px); background-size:30px 30px; }
+
+.proj-body { padding:28px; }
+.proj-type { font-family:'JetBrains Mono',monospace; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2); margin-bottom:8px; }
+.proj-name { font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; margin-bottom:10px; }
+.proj-desc { font-size:0.87rem; color:rgba(232,236,240,0.5); line-height:1.75; margin-bottom:18px; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.proj-tag { padding:3px 9px; background:rgba(255,255,255,0.04); border-radius:2px; font-family:'JetBrains Mono',monospace; font-size:0.57rem; letter-spacing:0.08em; color:var(--muted2); }
+.proj-link { display:inline-flex; align-items:center; gap:6px; color:var(--accent); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; transition:gap 0.2s; }
+.proj-link:hover { gap:12px; }
+.proj-featured { border-color:rgba(255,107,0,0.3); }
+.proj-featured-badge { position:absolute; top:16px; left:16px; z-index:2; padding:4px 10px; background:var(--accent2); color:#fff; font-family:'JetBrains Mono',monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; border-radius:2px; }
+
+/* CLIENT WORK */
+.client-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.client-card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:28px; transition:border-color 0.25s, transform 0.25s; cursor:none; }
+.client-card:hover { border-color:rgba(168,255,62,0.25); transform:translateY(-3px); }
+.client-name { font-family:'Orbitron',sans-serif; font-size:0.8rem; font-weight:700; margin-bottom:6px; }
+.client-role { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--accent); letter-spacing:0.08em; margin-bottom:8px; }
+.client-desc { font-size:0.84rem; color:rgba(232,236,240,0.5); line-height:1.7; }
+</style>
 </head>
-
 <body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<canvas id="particles"></canvas>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">TronDevelops</div>
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-box">TD</div>TRON DEVELOPS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html" class="nav-cta-btn">Start a Project</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Start a Project →</a>
+</div>
 
-    <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./services.html">Services</a></li>
-      <li><a href="./projects.html">Projects</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <p class="s-label reveal">Portfolio</p>
+  <h1 class="page-title reveal">Work I'm<br><span class="hl">Proud Of</span></h1>
+  <p class="page-sub reveal">From personal startups to client projects — real work, real results.</p>
+</div>
 
-  <main>
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Trend Mosaic Media</span><span class="sep">◈</span><span>Echoverge</span><span class="sep">◈</span><span>Tron Develops</span><span class="sep">◈</span><span>WordPress Sites</span><span class="sep">◈</span><span>SEO Campaigns</span><span class="sep">◈</span><span>Content Strategy</span><span class="sep">◈</span>
+    <span>Trend Mosaic Media</span><span class="sep">◈</span><span>Echoverge</span><span class="sep">◈</span><span>Tron Develops</span><span class="sep">◈</span><span>WordPress Sites</span><span class="sep">◈</span><span>SEO Campaigns</span><span class="sep">◈</span><span>Content Strategy</span><span class="sep">◈</span>
+  </div>
+</div>
 
-    <!-- PROJECTS SECTION -->
-    <section class="projects">
-
-      <div class="content">
-        <h1>Projects</h1>
-
-        <div class="project-card">
-          <h3>Business Website</h3>
-          <p>Modern responsive website for a startup with clean UI.</p>
+<!-- STARTUP PROJECTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Startup Initiatives</p>
+      <h2 class="s-title">Personal <span class="hl2">Projects</span></h2>
+      <p class="s-desc">Ideas turned into real digital products — built, launched, and growing.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card proj-featured reveal rd1">
+        <div class="proj-featured-badge">Flagship</div>
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0c1018,rgba(168,255,62,0.1))">
+          <div class="bg-grid"></div>⚡
         </div>
-
-        <div class="project-card">
-          <h3>Portfolio Website</h3>
-          <p>Personal portfolio with sleek design and animations.</p>
+        <div class="proj-body">
+          <div class="proj-type">// Agency · Digital Solutions</div>
+          <h3 class="proj-name">Tron Develops</h3>
+          <p class="proj-desc">A forward-thinking digital solutions agency helping businesses, startups, and individuals transform their ideas into powerful online experiences. Specializing in web development, design, and digital strategy.</p>
+          <div class="proj-tags"><span class="proj-tag">Web Dev</span><span class="proj-tag">Digital Strategy</span><span class="proj-tag">SEO</span><span class="proj-tag">Branding</span></div>
+          <a href="contact.html" class="proj-link">Work With Us →</a>
         </div>
-
-        <div class="project-card">
-          <h3>Landing Page</h3>
-          <p>High-converting landing page for product marketing.</p>
-        </div>
-
       </div>
+      <div class="proj-card reveal rd2">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0c1018,rgba(255,107,0,0.12))">
+          <div class="bg-grid"></div>🌐
+        </div>
+        <div class="proj-body">
+          <div class="proj-type">// Startup · Freelance Platform</div>
+          <h3 class="proj-name">Trend Mosaic Media (TMM)</h3>
+          <p class="proj-desc">A talent-based freelance platform for youth — connecting emerging creatives with real opportunities. Built the full website using HTML, CSS, and GitHub Pages, created onboarding forms, and managed outreach campaigns.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">GitHub Pages</span><span class="proj-tag">Content Strategy</span><span class="proj-tag">Outreach</span></div>
+          <a href="#" class="proj-link">View Project →</a>
+        </div>
+      </div>
+      <div class="proj-card reveal rd3">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0c1018,rgba(255,224,102,0.1))">
+          <div class="bg-grid"></div>🎵
+        </div>
+        <div class="proj-body">
+          <div class="proj-type">// Product · File Converter</div>
+          <h3 class="proj-name">Echoverge</h3>
+          <p class="proj-desc">A freemium file conversion platform for MP4 to MP3 & compression. Designed the complete layout, planned all user features, and developed the MVP interface using front-end tools.</p>
+          <div class="proj-tags"><span class="proj-tag">Front-End Dev</span><span class="proj-tag">UI/UX Design</span><span class="proj-tag">Product Strategy</span><span class="proj-tag">Freemium</span></div>
+          <a href="#" class="proj-link">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<!-- CLIENT WORK -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Client Work</p>
+      <h2 class="s-title">Professional <span class="hl">Engagements</span></h2>
+      <p class="s-desc">Real work done for real businesses — delivering measurable results every time.</p>
+    </div>
+    <div class="client-grid">
+      <div class="client-card reveal rd1">
+        <div class="client-name">Harmukh Technologies</div>
+        <div class="client-role">WordPress Development + SEO</div>
+        <div class="client-desc">Developed and maintained the company website, implemented SEO strategies, and analyzed traffic with Google Analytics to optimize user experience.</div>
+      </div>
+      <div class="client-card reveal rd2">
+        <div class="client-name">Earth5R</div>
+        <div class="client-role">Content Writing (2 Terms)</div>
+        <div class="client-desc">Produced engaging environmental content on climate change and sustainability. Invited back for a second term based on content quality and consistency.</div>
+      </div>
+      <div class="client-card reveal rd3">
+        <div class="client-name">Marpu Foundation</div>
+        <div class="client-role">Promotional Blogging (2 Terms)</div>
+        <div class="client-desc">Created SEO-optimized blogs on CSR, SDGs, and education initiatives. Returned for a second internship based on excellent work delivery.</div>
+      </div>
+      <div class="client-card reveal rd1">
+        <div class="client-name">Fiverr & Freelancer Clients</div>
+        <div class="client-role">Digital Marketing & Content</div>
+        <div class="client-desc">Delivered SEO articles, social media graphics, brochures, brand visuals, WordPress websites, and promotional videos for clients globally since 2022.</div>
+      </div>
+      <div class="client-card reveal rd2">
+        <div class="client-name">Asus Store</div>
+        <div class="client-role">Sales & Client Management</div>
+        <div class="client-desc">Managed in-store B2C sales for laptop products, assisting customers, demonstrating products, and consistently closing deals.</div>
+      </div>
+      <div class="client-card reveal rd3" style="border-color:rgba(168,255,62,0.2); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:160px;">
+        <div style="font-size:1.8rem; margin-bottom:12px;">🤝</div>
+        <div class="client-name" style="margin-bottom:8px;">You're Next</div>
+        <div class="client-desc" style="margin-bottom:16px;">Ready to grow your digital presence?</div>
+        <a href="contact.html" class="btn btn-primary" style="padding:10px 24px; font-size:0.75rem;">Start a Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
-
-  <!-- SCRIPT -->
-  <script src="./script.js"></script>
-
+<footer>
+  <div class="footer-logo">TRON DEVELOPS</div>
+  <p>© 2026 Tron Develops · Founded by <a href="about.html">Uzaid Bhat</a> · Srinagar, Kashmir</p>
+  <p class="footer-tagline">Your Growth Partner in the Digital Era</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
