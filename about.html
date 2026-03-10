@@ -1,56 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>About - Tron Develops</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="About Tron Develops and founder Uzaid Bhat — multidisciplinary digital professional from Kashmir."/>
+<title>About — Tron Develops</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.about-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:72px; align-items:start; }
+@media(max-width:900px){ .about-grid{grid-template-columns:1fr; gap:48px;} }
+.founder-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:40px; position:relative; overflow:hidden;
+}
+.founder-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+.founder-avatar {
+  width:90px; height:90px; border-radius:50%;
+  background:linear-gradient(135deg,rgba(168,255,62,0.15),rgba(255,107,0,0.15));
+  border:2px solid var(--accent); display:flex; align-items:center; justify-content:center;
+  font-size:2.5rem; margin-bottom:20px;
+}
+.founder-name { font-family:'Orbitron',sans-serif; font-size:1.4rem; font-weight:900; margin-bottom:4px; }
+.founder-title { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--accent); letter-spacing:0.1em; margin-bottom:20px; }
+.founder-bio { font-size:0.92rem; line-height:1.85; color:rgba(232,236,240,0.6); margin-bottom:24px; }
+.founder-bio strong { color:var(--text); }
+.contact-list { display:flex; flex-direction:column; gap:12px; }
+.contact-item {
+  display:flex; align-items:center; gap:10px;
+  font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--muted2);
+  text-decoration:none; transition:color 0.2s;
+}
+.contact-item:hover { color:var(--accent); }
+.contact-item .ci { color:var(--accent); width:18px; text-align:center; }
+
+.about-right { display:flex; flex-direction:column; gap:40px; }
+.block-title {
+  font-family:'Orbitron',sans-serif; font-size:0.72rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2);
+  display:flex; align-items:center; gap:10px; margin-bottom:16px;
+}
+.block-title::after { content:''; flex:1; height:1px; background:rgba(255,107,0,0.2); }
+
+.skills-grid { display:flex; flex-wrap:wrap; gap:8px; }
+.skill-chip {
+  padding:6px 14px; background:rgba(168,255,62,0.05);
+  border:1px solid rgba(168,255,62,0.15); border-radius:3px;
+  font-family:'JetBrains Mono',monospace; font-size:0.63rem;
+  letter-spacing:0.08em; color:var(--accent);
+  transition:background 0.2s, transform 0.2s; cursor:none;
+}
+.skill-chip:hover { background:rgba(168,255,62,0.12); transform:translateY(-2px); }
+.tools-grid { display:flex; flex-wrap:wrap; gap:8px; }
+.tool-chip {
+  padding:5px 12px; background:rgba(255,107,0,0.05);
+  border:1px solid rgba(255,107,0,0.15); border-radius:3px;
+  font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--accent2);
+}
+.lang-row { display:flex; gap:10px; flex-wrap:wrap; }
+.lang-tag {
+  padding:5px 14px; background:rgba(255,224,102,0.06);
+  border:1px solid rgba(255,224,102,0.15); border-radius:3px;
+  font-family:'JetBrains Mono',monospace; font-size:0.63rem; color:var(--accent3);
+}
+
+/* AGENCY MISSION */
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media(max-width:640px){ .mission-grid{grid-template-columns:1fr;} }
+.mission-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:32px; transition:transform 0.3s, border-color 0.3s;
+}
+.mission-card:hover { transform:translateY(-4px); border-color:rgba(168,255,62,0.25); }
+.mission-icon { font-size:1.8rem; margin-bottom:14px; }
+.mission-title { font-family:'Orbitron',sans-serif; font-size:0.82rem; font-weight:700; color:var(--accent); margin-bottom:8px; }
+.mission-desc { font-size:0.88rem; color:rgba(232,236,240,0.5); line-height:1.75; }
+
+/* EXP TIMELINE */
+.timeline { position:relative; padding-left:28px; }
+.timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--accent),transparent); opacity:0.3; }
+.tl-item { margin-bottom:40px; position:relative; }
+.tl-item::before { content:''; position:absolute; left:-33px; top:6px; width:10px; height:10px; background:var(--bg); border:2px solid var(--accent); border-radius:50%; box-shadow:0 0 10px rgba(168,255,62,0.4); }
+.tl-role { font-family:'Orbitron',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:2px; }
+.tl-company { font-size:0.95rem; font-weight:600; color:var(--accent); }
+.tl-meta { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--muted2); letter-spacing:0.1em; margin:4px 0 12px; }
+.tl-points { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.tl-points li { font-size:0.88rem; color:rgba(232,236,240,0.55); line-height:1.65; padding-left:16px; position:relative; }
+.tl-points li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:0.65rem; top:4px; }
+
+/* CERTS */
+.certs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
+.cert-row { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:20px 24px; display:flex; align-items:center; gap:14px; transition:border-color 0.25s, transform 0.25s; cursor:none; }
+.cert-row:hover { border-color:rgba(168,255,62,0.3); transform:translateY(-3px); }
+.cert-ico { font-size:1.3rem; min-width:32px; text-align:center; }
+.cert-name { font-size:0.85rem; font-weight:600; margin-bottom:3px; }
+.cert-by { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--accent); letter-spacing:0.08em; }
+.cert-yr { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--muted2); }
+
+/* EDU */
+.edu-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.edu-card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:28px; border-left:3px solid var(--accent); transition:transform 0.25s; }
+.edu-card:hover { transform:translateY(-3px); }
+.edu-deg { font-family:'Orbitron',sans-serif; font-size:0.78rem; font-weight:700; margin-bottom:6px; }
+.edu-school { font-size:0.95rem; font-weight:600; color:var(--accent2); margin-bottom:4px; }
+.edu-yr { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--muted2); letter-spacing:0.1em; }
+</style>
 </head>
-
 <body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<canvas id="particles"></canvas>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">Tron Develops</div>
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-box">TD</div>TRON DEVELOPS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="nav-cta-btn">Start a Project</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Start a Project →</a>
+</div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <p class="s-label reveal">About</p>
+  <h1 class="page-title reveal">The <span class="hl">Agency</span> &<br>The <span class="hl2">Founder</span></h1>
+  <p class="page-sub reveal">A digital professional from Kashmir on a mission to build powerful online experiences for businesses and individuals worldwide.</p>
+</div>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-page">
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Uzaid Bhat</span><span class="sep">◈</span><span>Tron Develops</span><span class="sep">◈</span><span>Kashmir</span><span class="sep">◈</span><span>Digital Marketer</span><span class="sep">◈</span><span>Web Developer</span><span class="sep">◈</span><span>Content Creator</span><span class="sep">◈</span>
+    <span>Uzaid Bhat</span><span class="sep">◈</span><span>Tron Develops</span><span class="sep">◈</span><span>Kashmir</span><span class="sep">◈</span><span>Digital Marketer</span><span class="sep">◈</span><span>Web Developer</span><span class="sep">◈</span><span>Content Creator</span><span class="sep">◈</span>
+  </div>
+</div>
 
-    <div class="content fade-in">
-      <h1>About TronDevelops</h1>
-
-      <p>
-        TronDevelops is focused on building modern, fast, and high-performing 
-        websites for businesses, startups, and creators. We believe that a website 
-        is more than just design — it’s a powerful tool to grow, scale, and stand out.
-      </p>
-
-      <p>
-        We combine clean design, efficient code, and smart strategy to deliver 
-        digital experiences that not only look great but also perform. Every project 
-        is built with performance, user experience, and growth in mind.
-      </p>
-
-      <p>
-        Whether you're a startup or an established business, TronDevelops helps you 
-        turn your ideas into powerful online experiences.
-      </p>
-
+<!-- ABOUT MAIN -->
+<section class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="founder-card reveal">
+        <div class="founder-avatar">👨‍💻</div>
+        <div class="founder-name">Uzaid Bhat</div>
+        <div class="founder-title">// Founder & Lead Digital Strategist</div>
+        <p class="founder-bio">
+          <strong>Adaptable professional with a growth mindset.</strong> Multidisciplinary digital professional with hands-on experience in Sales, Digital Marketing, Video Editing, Content Creation, and WordPress Website Development.
+        </p>
+        <p class="founder-bio">
+          Founder of <strong>Trend Mosaic Media (TMM)</strong> — a talent-based platform for youth — and creator of <strong>Echoverge</strong>, a freemium file conversion platform. Currently pursuing <strong>BCA at IGNOU</strong>.
+        </p>
+        <div class="contact-list">
+          <a href="mailto:bhatuzaid6@gmail.com" class="contact-item"><span class="ci">✉</span>bhatuzaid6@gmail.com</a>
+          <a href="tel:9682376204" class="contact-item"><span class="ci">☏</span>+91 9682376204</a>
+          <a href="https://linkedin.com/in/uzaid-bhat/" target="_blank" class="contact-item"><span class="ci">in</span>linkedin.com/in/uzaid-bhat</a>
+          <span class="contact-item"><span class="ci">⌖</span>Soura, Srinagar, Kashmir, India</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="reveal rd1">
+          <div class="block-title">Core Skills</div>
+          <div class="skills-grid">
+            <span class="skill-chip">Digital Marketing & SEO</span>
+            <span class="skill-chip">Website Development</span>
+            <span class="skill-chip">Content Writing</span>
+            <span class="skill-chip">Copywriting</span>
+            <span class="skill-chip">Graphic Design</span>
+            <span class="skill-chip">Video Editing</span>
+            <span class="skill-chip">Social Media Strategy</span>
+            <span class="skill-chip">Client Management</span>
+            <span class="skill-chip">Google Analytics</span>
+            <span class="skill-chip">GitHub Deployment</span>
+            <span class="skill-chip">Field Sales</span>
+            <span class="skill-chip">Research & Presentations</span>
+          </div>
+        </div>
+        <div class="reveal rd2">
+          <div class="block-title">Tools & Platforms</div>
+          <div class="tools-grid">
+            <span class="tool-chip">WordPress</span><span class="tool-chip">Blogger</span>
+            <span class="tool-chip">Canva</span><span class="tool-chip">Adobe Express</span>
+            <span class="tool-chip">DaVinci Resolve</span><span class="tool-chip">Clipchamp</span>
+            <span class="tool-chip">GitHub</span><span class="tool-chip">Google Analytics</span>
+            <span class="tool-chip">Search Console</span><span class="tool-chip">ChatGPT</span>
+            <span class="tool-chip">MS Office / Excel</span><span class="tool-chip">HTML/CSS</span>
+            <span class="tool-chip">Fiverr</span><span class="tool-chip">Freelancer</span>
+          </div>
+        </div>
+        <div class="reveal rd3">
+          <div class="block-title">Languages</div>
+          <div class="lang-row">
+            <span class="lang-tag">English</span><span class="lang-tag">Urdu</span>
+            <span class="lang-tag">Kashmiri</span><span class="lang-tag">Hindi</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-  </section>
+<!-- AGENCY MISSION -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Our Mission</p>
+      <h2 class="s-title">What <span class="hl">Tron Develops</span> Stands For</h2>
+      <p class="s-desc">More than a service provider — we're your growth partner in the digital era.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal rd1">
+        <div class="mission-icon">🚀</div>
+        <div class="mission-title">Innovation First</div>
+        <div class="mission-desc">We blend creativity with technical expertise to craft websites and digital products that are future-ready and built to scale.</div>
+      </div>
+      <div class="mission-card reveal rd2">
+        <div class="mission-icon">💎</div>
+        <div class="mission-title">Quality & Reliability</div>
+        <div class="mission-desc">Invited back multiple times by clients — our work speaks for itself. Consistency and excellence are non-negotiable.</div>
+      </div>
+      <div class="mission-card reveal rd3">
+        <div class="mission-icon">🎯</div>
+        <div class="mission-title">Client-Centered</div>
+        <div class="mission-desc">Every project is tailored to meet specific client goals. We listen first, then we build exactly what you need.</div>
+      </div>
+      <div class="mission-card reveal rd4">
+        <div class="mission-icon">🌱</div>
+        <div class="mission-title">Long-Term Growth</div>
+        <div class="mission-desc">Technology should empower growth. We build digital assets that keep working for your business long after launch.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- EXPERIENCE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Work History</p>
+      <h2 class="s-title">Professional <span class="hl2">Experience</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-role">Digital Marketing Executive (WordPress Developer)</div>
+        <div class="tl-company">Harmukh Technologies (OPC) Pvt. Ltd.</div>
+        <div class="tl-meta">▸ Oct 2024 – Dec 2024 | On-site</div>
+        <ul class="tl-points">
+          <li>Developed and maintained the company website using WordPress.</li>
+          <li>Implemented SEO strategies to improve search rankings.</li>
+          <li>Analyzed traffic using Google Analytics and optimized user experience.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal rd1">
+        <div class="tl-role">Store Manager</div>
+        <div class="tl-company">Asus</div>
+        <div class="tl-meta">▸ Sept 2023 – Sep 2024 | On-site</div>
+        <ul class="tl-points">
+          <li>Gained experience in both field and in-store sales.</li>
+          <li>Handled B2C laptop sales, demonstrating products and closing deals.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal rd2">
+        <div class="tl-role">Freelance Digital Marketer & Content Creator</div>
+        <div class="tl-company">Self-Employed (Fiverr & Freelancer)</div>
+        <div class="tl-meta">▸ Jan 2022 – Present | Remote</div>
+        <ul class="tl-points">
+          <li>Delivered SEO articles, blogs, and marketing content to clients globally.</li>
+          <li>Designed social media graphics, brochures, and brand visuals.</li>
+          <li>Built responsive WordPress websites with SEO optimization.</li>
+          <li>Edited promotional videos using DaVinci Resolve and Clipchamp.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal rd3">
+        <div class="tl-role">Promotional Blogger & Content Writer (Intern)</div>
+        <div class="tl-company">Marpu Foundation</div>
+        <div class="tl-meta">▸ May–Jun 2023 & Aug–Sep 2024 | Remote (2 Terms)</div>
+        <ul class="tl-points">
+          <li>Returned for a second internship based on excellent delivery.</li>
+          <li>Created blogs on CSR, SDGs, and education-driven initiatives.</li>
+          <li>Optimized posts using keywords and SEO best practices.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal rd4">
+        <div class="tl-role">Content Writer (Intern)</div>
+        <div class="tl-company">Earth5R</div>
+        <div class="tl-meta">▸ Apr–May 2023 & Mar–Apr 2024 | Remote (2 Terms)</div>
+        <ul class="tl-points">
+          <li>Produced content on climate change and sustainability.</li>
+          <li>Supported environmental awareness campaigns through blogging.</li>
+          <li>Invited back for a second term based on quality and consistency.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Credentials</p>
+      <h2 class="s-title"><span class="hl">Certifications</span></h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-row reveal rd1"><div class="cert-ico">🤖</div><div><div class="cert-name">AI Appreciate Badge — AI For All</div><div class="cert-by">Intel Corporation</div><div class="cert-yr">Oct 2024</div></div></div>
+      <div class="cert-row reveal rd2"><div class="cert-ico">📊</div><div><div class="cert-name">Fundamentals of Digital Marketing</div><div class="cert-by">Google Digital Garage</div><div class="cert-yr">Jul 2024</div></div></div>
+      <div class="cert-row reveal rd3"><div class="cert-ico">📈</div><div><div class="cert-name">Analyzing & Visualizing Data with Excel</div><div class="cert-by">Tata Group</div><div class="cert-yr">Oct 2024</div></div></div>
+      <div class="cert-row reveal rd1"><div class="cert-ico">🎨</div><div><div class="cert-name">Graphic Design</div><div class="cert-by">MindLuster</div><div class="cert-yr">Jun 2023</div></div></div>
+      <div class="cert-row reveal rd2"><div class="cert-ico">⚙️</div><div><div class="cert-name">Artificial Intelligence</div><div class="cert-by">Accenture</div><div class="cert-yr">Aug 2022</div></div></div>
+      <div class="cert-row reveal rd3"><div class="cert-ico">🌐</div><div><div class="cert-name">Digital Marketing & Web Analytics</div><div class="cert-by">Accenture</div><div class="cert-yr">Aug 2022</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Academic Background</p>
+      <h2 class="s-title"><span class="hl2">Education</span></h2>
+    </div>
+    <div class="edu-row">
+      <div class="edu-card reveal rd1"><div class="edu-deg">Bachelor of Computer Applications (BCA)</div><div class="edu-school">Indira Gandhi National Open University (IGNOU)</div><div class="edu-yr">2024 – Present</div></div>
+      <div class="edu-card reveal rd2"><div class="edu-deg">Higher Secondary Education</div><div class="edu-school">BHSS Soura</div><div class="edu-yr">2021 – 2024</div></div>
+      <div class="edu-card reveal rd3"><div class="edu-deg">Foundational Education</div><div class="edu-school">CCEI</div><div class="edu-yr">2008 – 2021</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">TRON DEVELOPS</div>
+  <p>© 2026 Tron Develops · Founded by <a href="about.html">Uzaid Bhat</a> · Srinagar, Kashmir</p>
+  <p class="footer-tagline">Your Growth Partner in the Digital Era</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
