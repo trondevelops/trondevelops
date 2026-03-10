@@ -1,127 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Services - TronDevelops</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Tron Develops services — web development, SEO, digital marketing, content creation, graphic design, and video editing."/>
+<title>Services — Tron Develops</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.services-full { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:24px; }
+.svc-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:40px 36px; position:relative; overflow:hidden;
+  transition:transform 0.35s, box-shadow 0.35s, border-color 0.35s; cursor:none;
+}
+.svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
+.svc-card:hover { transform:translateY(-7px); box-shadow:0 24px 60px rgba(0,0,0,0.4); border-color:rgba(168,255,62,0.25); }
+.svc-card:hover::before { transform:scaleX(1); }
+.svc-icon-wrap {
+  width:56px; height:56px; border-radius:8px;
+  background:rgba(168,255,62,0.08); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.7rem; margin-bottom:22px;
+}
+.svc-name { font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; margin-bottom:12px; }
+.svc-desc { font-size:0.9rem; color:rgba(232,236,240,0.55); line-height:1.8; margin-bottom:20px; }
+.svc-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:24px; }
+.svc-list li { font-size:0.85rem; color:rgba(232,236,240,0.6); padding-left:16px; position:relative; line-height:1.5; }
+.svc-list li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:0.65rem; top:3px; }
+.svc-price {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 16px; background:rgba(168,255,62,0.07);
+  border:1px solid rgba(168,255,62,0.15); border-radius:3px;
+  font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+  color:var(--accent); letter-spacing:0.08em;
+}
+
+/* PACKAGES */
+.packages-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+.pkg-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:36px 32px; position:relative; overflow:hidden;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.pkg-card.featured { border-color:rgba(168,255,62,0.4); }
+.pkg-card.featured::before { content:'MOST POPULAR'; position:absolute; top:16px; right:-28px; background:var(--accent); color:var(--bg); font-family:'JetBrains Mono',monospace; font-size:0.55rem; font-weight:700; letter-spacing:0.15em; padding:4px 40px; transform:rotate(45deg); }
+.pkg-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,0.4); }
+.pkg-name { font-family:'Orbitron',sans-serif; font-size:0.82rem; font-weight:700; color:var(--accent2); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
+.pkg-price { font-family:'Orbitron',sans-serif; font-size:2rem; font-weight:900; line-height:1; margin-bottom:4px; }
+.pkg-price span { font-size:0.8rem; color:var(--muted2); font-weight:400; }
+.pkg-desc { font-size:0.85rem; color:rgba(232,236,240,0.5); margin:12px 0 20px; line-height:1.7; }
+.pkg-features { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:24px; }
+.pkg-features li { font-size:0.85rem; color:rgba(232,236,240,0.6); padding-left:18px; position:relative; }
+.pkg-features li::before { content:'✓'; position:absolute; left:0; color:var(--accent); font-size:0.75rem; }
+</style>
 </head>
-
 <body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<canvas id="particles"></canvas>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">TronDevelops</div>
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-box">TD</div>TRON DEVELOPS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="nav-cta-btn">Start a Project</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Start a Project →</a>
+</div>
 
-    <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./services.html">Services</a></li>
-      <li><a href="./projects.html">Projects</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <p class="s-label reveal">Services</p>
+  <h1 class="page-title reveal">Everything You Need to<br><span class="hl">Dominate</span> Online</h1>
+  <p class="page-sub reveal">From building your website to growing your audience — Tron Develops handles your complete digital presence.</p>
+</div>
 
-  <main>
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Web Development</span><span class="sep">◈</span><span>SEO</span><span class="sep">◈</span><span>Content Writing</span><span class="sep">◈</span><span>Graphic Design</span><span class="sep">◈</span><span>Video Editing</span><span class="sep">◈</span><span>Social Media</span><span class="sep">◈</span><span>WordPress</span><span class="sep">◈</span><span>Digital Marketing</span><span class="sep">◈</span>
+    <span>Web Development</span><span class="sep">◈</span><span>SEO</span><span class="sep">◈</span><span>Content Writing</span><span class="sep">◈</span><span>Graphic Design</span><span class="sep">◈</span><span>Video Editing</span><span class="sep">◈</span><span>Social Media</span><span class="sep">◈</span><span>WordPress</span><span class="sep">◈</span><span>Digital Marketing</span><span class="sep">◈</span>
+  </div>
+</div>
 
-    <!-- SERVICES HERO -->
-    <section class="services-hero">
-
-      <div class="content">
-        <h1>Services</h1>
-        <p>Everything you need to build a powerful online presence.</p>
+<!-- ALL SERVICES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="services-full">
+      <div class="svc-card reveal rd1">
+        <div class="svc-icon-wrap">🌐</div>
+        <div class="svc-name">Web Development</div>
+        <p class="svc-desc">Fast, modern, fully responsive websites tailored to your business — built with clean code and optimized for performance.</p>
+        <ul class="svc-list">
+          <li>Custom Website Development</li>
+          <li>WordPress Development & Maintenance</li>
+          <li>Responsive Design (Mobile + Desktop)</li>
+          <li>Performance & Speed Optimization</li>
+          <li>GitHub Pages Deployment</li>
+          <li>Landing Pages & Portfolios</li>
+        </ul>
+        <div class="svc-price">Starting from ₹2,500</div>
       </div>
-
-    </section>
-
-    <!-- SERVICES LIST -->
-    <section class="services-section">
-
-      <div class="content">
-
-        <div class="service-card">
-          <h2>Web Development</h2>
-          <p>
-            We build fast, modern, and responsive websites tailored to your business needs.
-          </p>
-
-          <ul>
-            <li>Custom Website Development</li>
-            <li>Responsive Design (Mobile + Desktop)</li>
-            <li>Performance Optimization</li>
-            <li>Clean & Scalable Code</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h2>UI/UX Design</h2>
-          <p>
-            We design clean and user-focused interfaces that improve engagement and usability.
-          </p>
-
-          <ul>
-            <li>Modern UI Design</li>
-            <li>User Experience Optimization</li>
-            <li>Wireframing & Layout Planning</li>
-            <li>Conversion-Focused Design</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h2>SEO Optimization</h2>
-          <p>
-            We optimize your website to rank better and reach the right audience.
-          </p>
-
-          <ul>
-            <li>On-Page SEO</li>
-            <li>Performance & Speed Optimization</li>
-            <li>Search Engine Visibility</li>
-            <li>Basic Keyword Optimization</li>
-          </ul>
-        </div>
-
+      <div class="svc-card reveal rd2">
+        <div class="svc-icon-wrap">📈</div>
+        <div class="svc-name">SEO & Digital Marketing</div>
+        <p class="svc-desc">Data-driven strategies to improve your rankings, drive real traffic, and convert visitors into paying clients.</p>
+        <ul class="svc-list">
+          <li>On-Page SEO Optimization</li>
+          <li>Keyword Research & Strategy</li>
+          <li>Google Analytics Setup & Reporting</li>
+          <li>Google Search Console Management</li>
+          <li>Content-Driven SEO Campaigns</li>
+          <li>Technical SEO Audits</li>
+        </ul>
+        <div class="svc-price">Starting from ₹1,500/mo</div>
       </div>
-
-    </section>
-
-    <!-- WHY -->
-    <section class="why">
-
-      <div class="content">
-        <h2>Why Choose TronDevelops?</h2>
-
-        <div class="why-grid">
-          <div>⚡ Fast & Modern Websites</div>
-          <div>🎯 Client-Focused Approach</div>
-          <div>💎 Clean & Scalable Code</div>
-          <div>🚀 Built for Growth</div>
-        </div>
+      <div class="svc-card reveal rd3">
+        <div class="svc-icon-wrap">✍️</div>
+        <div class="svc-name">Content Writing & Copywriting</div>
+        <p class="svc-desc">Compelling, SEO-optimized content that builds authority, drives traffic, and converts readers into customers.</p>
+        <ul class="svc-list">
+          <li>SEO Blog Articles & Web Copy</li>
+          <li>Product Descriptions & Sales Copy</li>
+          <li>Social Media Captions & Posts</li>
+          <li>Email Marketing Campaigns</li>
+          <li>CSR, SDG & Sustainability Content</li>
+          <li>Editing & Proofreading</li>
+        </ul>
+        <div class="svc-price">Starting from ₹500/article</div>
       </div>
-
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-
-      <div class="content">
-        <h2>Have a Project in Mind?</h2>
-        <p>Let’s build something powerful together.</p>
-
-        <a href="mailto:trondevelops@gmail.com" class="btn">
-          Start a Project →
-        </a>
+      <div class="svc-card reveal rd1">
+        <div class="svc-icon-wrap">🎨</div>
+        <div class="svc-name">Graphic Design</div>
+        <p class="svc-desc">Eye-catching visuals that communicate your brand identity and drive engagement across all platforms.</p>
+        <ul class="svc-list">
+          <li>Social Media Graphics & Banners</li>
+          <li>Brand Identity & Logo Design</li>
+          <li>Brochures, Flyers & Posters</li>
+          <li>Presentation Design</li>
+          <li>Canva & Adobe Express Templates</li>
+          <li>Thumbnail & Cover Art</li>
+        </ul>
+        <div class="svc-price">Starting from ₹300/design</div>
       </div>
+      <div class="svc-card reveal rd2">
+        <div class="svc-icon-wrap">🎬</div>
+        <div class="svc-name">Video Editing</div>
+        <p class="svc-desc">Professional video editing for reels, promos, and brand storytelling using DaVinci Resolve and Clipchamp.</p>
+        <ul class="svc-list">
+          <li>Promotional & Brand Videos</li>
+          <li>Social Media Reels & Shorts</li>
+          <li>Color Grading & Sound Design</li>
+          <li>Subtitles & Motion Text</li>
+          <li>YouTube & Instagram Edits</li>
+          <li>Long-Form Video Editing</li>
+        </ul>
+        <div class="svc-price">Starting from ₹800/video</div>
+      </div>
+      <div class="svc-card reveal rd3">
+        <div class="svc-icon-wrap">📱</div>
+        <div class="svc-name">Social Media Strategy</div>
+        <p class="svc-desc">Complete social media management — from content planning to posting — to grow your audience and build real engagement.</p>
+        <ul class="svc-list">
+          <li>Content Calendar & Planning</li>
+          <li>Post Creation & Scheduling</li>
+          <li>Platform Strategy (Instagram, LinkedIn)</li>
+          <li>Audience Growth Tactics</li>
+          <li>Analytics Tracking & Reporting</li>
+          <li>Brand Voice & Tone Guidelines</li>
+        </ul>
+        <div class="svc-price">Starting from ₹2,000/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<!-- PACKAGES -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="s-label">Bundles</p>
+      <h2 class="s-title">Service <span class="hl">Packages</span></h2>
+      <p class="s-desc">Not sure what you need? Pick a package that covers your goals end-to-end.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="pkg-card reveal rd1">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">₹3,999 <span>/ one-time</span></div>
+        <div class="pkg-desc">Perfect for individuals, freelancers, and small businesses just getting online.</div>
+        <ul class="pkg-features">
+          <li>1-Page Website (HTML/WordPress)</li>
+          <li>Basic On-Page SEO Setup</li>
+          <li>3 Social Media Graphics</li>
+          <li>1 Blog Post (500 words)</li>
+          <li>7-Day Delivery</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started →</a>
+      </div>
+      <div class="pkg-card featured reveal rd2">
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price">₹8,999 <span>/ month</span></div>
+        <div class="pkg-desc">For businesses ready to grow their digital presence aggressively.</div>
+        <ul class="pkg-features">
+          <li>Full Website (5 Pages)</li>
+          <li>Complete SEO Strategy</li>
+          <li>4 Blog Posts/month</li>
+          <li>8 Social Media Graphics</li>
+          <li>Google Analytics Setup</li>
+          <li>Monthly Performance Report</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
+      </div>
+      <div class="pkg-card reveal rd3">
+        <div class="pkg-name">Pro</div>
+        <div class="pkg-price">₹17,999 <span>/ month</span></div>
+        <div class="pkg-desc">Full-service digital management for serious brands and growing companies.</div>
+        <ul class="pkg-features">
+          <li>Complete Website Development</li>
+          <li>Full SEO + Content Strategy</li>
+          <li>8 Blog Posts/month</li>
+          <li>Full Social Media Management</li>
+          <li>2 Promo Videos/month</li>
+          <li>Brand Identity Design</li>
+          <li>Weekly Reports & Calls</li>
+        </ul>
+        <a href="contact.html" class="btn btn-orange" style="width:100%;justify-content:center;">Get Started →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- CTA -->
+<section class="section" style="padding-top:40px;">
+  <div class="section-inner" style="text-align:center;">
+    <p class="s-label reveal" style="justify-content:center">Custom Quote</p>
+    <h2 class="s-title reveal" style="margin-bottom:16px">Need Something <span class="hl">Custom?</span></h2>
+    <p class="s-desc reveal" style="margin:0 auto 36px">Every project is different. Let's talk about what you need and I'll put together the right plan for your goals and budget.</p>
+    <a href="contact.html" class="btn btn-primary reveal">Get a Free Quote →</a>
+  </div>
+</section>
 
-  <!-- SCRIPT -->
-  <script src="./script.js"></script>
-
+<footer>
+  <div class="footer-logo">TRON DEVELOPS</div>
+  <p>© 2026 Tron Develops · Founded by <a href="about.html">Uzaid Bhat</a> · Srinagar, Kashmir</p>
+  <p class="footer-tagline">Your Growth Partner in the Digital Era</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
