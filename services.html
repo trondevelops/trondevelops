@@ -328,6 +328,7 @@ footer a{color:#ffc300;text-decoration:none;}
   <p>Your Growth Partner in the Digital Era</p>
 </footer>
 <script>
+
 (function(){
 
 /* ─── CURSOR ─── */
@@ -477,21 +478,20 @@ document.addEventListener('click',function(e){
 /* ─── PAGE TRANSITION ─── */
 var ptOverlay=document.getElementById('pt-overlay');
 if(ptOverlay){
+  var basePath=window.location.pathname.replace(/\/[^\/]*$/,'/')||'/';
   document.querySelectorAll('a[href]').forEach(function(a){
     var h=a.getAttribute('href');
     if(h&&!h.startsWith('#')&&!h.startsWith('mailto')&&!h.startsWith('tel')&&!h.startsWith('http')&&h.endsWith('.html')){
       a.addEventListener('click',function(e){
         e.preventDefault();
+        var dest=h.startsWith('/')?h:basePath+h;
         ptOverlay.classList.add('in');
-        setTimeout(function(){window.location.href=h;},450);
+        setTimeout(function(){window.location.href=dest;},380);
       });
     }
   });
-  window.addEventListener('pageshow',function(){
-    ptOverlay.classList.add('in');
-    setTimeout(function(){ptOverlay.classList.remove('in');},50);
-  });
-  setTimeout(function(){ptOverlay.classList.remove('in');},100);
+  ptOverlay.classList.add('in');
+  setTimeout(function(){ptOverlay.classList.remove('in');},80);
 }
 
 /* ─── TEXT SCRAMBLE TAGLINE ─── */
@@ -612,14 +612,17 @@ if(ldr){
       '> Welcome.'
     ];
     var li=0,ci=0;
-    function tl(){if(li>=llines.length)return;if(ci<llines[li].length){lterm.textContent+=llines[li][ci++];setTimeout(tl,20);}else{lterm.textContent+='
-';li++;ci=0;setTimeout(tl,90);}}
+    function tl(){if(li>=llines.length)return;if(ci<llines[li].length){lterm.textContent+=llines[li][ci++];setTimeout(tl,20);}else{lterm.textContent+='\n';li++;ci=0;setTimeout(tl,90);}}
     setTimeout(tl,400);
   }
-  window.addEventListener('load',function(){setTimeout(function(){ldr.classList.add('hide');setTimeout(function(){ldr.style.display='none';},900);},2000);});
+  function hideLdr(){setTimeout(function(){ldr.classList.add('hide');setTimeout(function(){ldr.style.display='none';},900);},1800);}
+  if(document.readyState==='complete'){hideLdr();}
+  else{window.addEventListener('load',hideLdr);}
+  setTimeout(function(){if(ldr&&ldr.style.display!=='none'){ldr.classList.add('hide');setTimeout(function(){ldr.style.display='none';},900);}},5000);
 }
 
 })();
+
 </script>
 </body>
 </html>
