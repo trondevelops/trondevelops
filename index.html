@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About — Tron Develops</title>
+<title>Tron Develops — Your Growth Partner in the Digital Era</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet"/>
 <style>
 
@@ -162,80 +162,95 @@ footer a{color:#ffc300;text-decoration:none;}
 @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.hero-stats{display:none!important;}.why-grid{grid-template-columns:1fr!important;}.cta-banner{flex-direction:column!important;padding:32px 20px!important;}footer{justify-content:center;text-align:center;}}
 
 
-.page-hero{padding:150px 5vw 80px;position:relative;z-index:1;}
-.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);}
-.page-title{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,6vw,4.5rem);font-weight:900;line-height:1;margin-bottom:16px;}
-.page-title .hl{color:#ffc300;}
-.page-sub{max-width:560px;font-size:1rem;color:rgba(255,255,255,.45);line-height:1.85;}
-.s-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:#ffc300;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
-.s-tag::before{content:'';display:block;width:24px;height:1px;background:#ffc300;}
+#hero{min-height:100vh;display:flex;align-items:center;padding:0 5vw;position:relative;z-index:1;overflow:hidden;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 80% 80% at 40% 50%,black,transparent);}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:#ffc300;margin-bottom:24px;opacity:0;animation:fadeUp .6s .3s forwards;display:flex;align-items:center;gap:12px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:#ffc300;}
+.hero-title{font-family:'Orbitron',sans-serif;font-size:clamp(3rem,11vw,9rem);font-weight:900;line-height:.88;letter-spacing:-.03em;margin-bottom:12px;}
+.hero-title .line1{display:block;color:#fff;}
+.hero-title .line2{display:block;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.7);background:linear-gradient(135deg,#fff 30%,#ffc300);-webkit-background-clip:text;background-clip:text;}
+.hero-tagline{font-family:'JetBrains Mono',monospace;font-size:clamp(.65rem,1.4vw,.88rem);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:30px;min-height:1.4em;opacity:0;animation:fadeUp .6s .8s forwards;}
+.hero-desc{max-width:520px;font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,.5);margin-bottom:44px;}
+.hero-desc strong{color:#fff;font-weight:600;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s 1.2s forwards;}
+.hero-right{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;opacity:0;animation:fadeUp .8s 1.4s forwards;}
+.hero-stat-card{padding:20px 28px;min-width:160px;text-align:right;}
+.h-stat-num{font-family:'Orbitron',sans-serif;font-size:2.4rem;font-weight:900;color:#fff;line-height:1;}
+.h-stat-label{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp .6s 1.6s forwards;}
+.scroll-cue span{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.25em;color:rgba(255,255,255,.3);}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent);animation:scrollPulse 2s infinite;}
+@keyframes scrollPulse{0%,100%{opacity:.2}50%{opacity:.9}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
-/* FOUNDER */
-.founder-grid{display:grid;grid-template-columns:1fr 1.8fr;gap:48px;align-items:start;}
-.founder-card{padding:40px;text-align:center;}
-.founder-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(255,195,0,.15),rgba(255,255,255,.05));border:2px solid rgba(255,195,0,.25);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;margin:0 auto 20px;color:#ffc300;}
-.founder-name{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:4px;}
-.founder-role{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:#ffc300;margin-bottom:20px;}
-.founder-contacts{display:flex;flex-direction:column;gap:8px;}
-.contact-pill{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s,background .2s;}
-.contact-pill:hover{color:#fff;background:rgba(255,255,255,.04);}
-.contact-pill span{font-size:.85rem;}
-.founder-bio{font-size:.95rem;line-height:1.9;color:rgba(255,255,255,.5);margin-bottom:28px;}
-.founder-bio strong{color:#fff;}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+.service-card{padding:36px 32px;cursor:none;}
+.service-card .svc-icon{width:52px;height:52px;border-radius:8px;background:rgba(255,195,0,.07);border:1px solid rgba(255,195,0,.15);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:22px;}
+.service-card .svc-name{font-family:'Orbitron',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:10px;letter-spacing:.04em;}
+.service-card .svc-desc{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:18px;}
+.svc-link{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:#ffc300;text-decoration:none;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;transition:gap .2s;}
+.svc-link:hover{gap:12px;}
 
-/* SKILLS */
-.skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
-.skill-chip{padding:7px 16px;border:1px solid var(--border);border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.05em;color:rgba(255,255,255,.5);transition:border-color .2s,color .2s,background .2s;}
-.skill-chip:hover{border-color:rgba(255,195,0,.4);color:#ffc300;background:rgba(255,195,0,.04);}
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.why-list{display:flex;flex-direction:column;gap:26px;}
+.why-item{display:flex;gap:18px;align-items:flex-start;}
+.why-num{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:rgba(255,195,0,.15);min-width:48px;line-height:1;}
+.why-item-body{}
+.why-item-title{font-family:'Orbitron',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:6px;}
+.why-item-desc{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.75;}
+.why-right{padding:44px;}
+.why-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.why-stat{padding:22px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:8px;text-align:center;}
+.why-stat-num{font-family:'Orbitron',sans-serif;font-size:2.1rem;font-weight:900;color:#fff;line-height:1;margin-bottom:8px;}
+.why-stat-label{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;}
 
-/* TOOLS */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;}
-.tool-item{padding:14px 16px;border-radius:8px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.45);transition:border-color .2s,color .2s;}
-.tool-item:hover{border-color:rgba(255,195,0,.2);color:#ffc300;}
-.tool-icon{font-size:1.3rem;margin-bottom:6px;}
+/* PROCESS */
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.process-step{padding:36px 28px;border-right:1px solid var(--border);position:relative;}
+.process-step:last-child{border-right:none;}
+.process-step::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#ffc300;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.process-step:hover::after{transform:scaleX(1);}
+.proc-num{font-family:'Orbitron',sans-serif;font-size:3rem;font-weight:900;color:rgba(255,255,255,.05);line-height:1;margin-bottom:14px;}
+.proc-title{font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;color:#ffc300;margin-bottom:8px;letter-spacing:.06em;}
+.proc-desc{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.75;}
 
-/* TIMELINE */
-.tl{display:flex;flex-direction:column;gap:0;}
-.tl-item{display:grid;grid-template-columns:140px 1px 1fr;gap:0 24px;position:relative;}
-.tl-item:not(:last-child) .tl-line{background:rgba(255,255,255,.06);}
-.tl-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:rgba(255,255,255,.3);padding-top:4px;text-align:right;}
-.tl-line{width:1px;position:relative;}
-.tl-dot{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:#ffc300;box-shadow:0 0 8px rgba(255,195,0,.5);}
-.tl-body{padding:0 0 36px 0;}
-.tl-role{font-family:'Orbitron',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:4px;}
-.tl-company{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#ffc300;letter-spacing:.08em;margin-bottom:8px;}
-.tl-desc{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.75;}
-
-/* CERTS */
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-.cert-card{padding:22px 24px;display:flex;align-items:center;gap:16px;border-radius:8px;}
-.cert-icon{font-size:1.5rem;min-width:36px;}
-.cert-name{font-family:'Orbitron',sans-serif;font-size:.76rem;font-weight:700;margin-bottom:4px;}
-.cert-issuer{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:#ffc300;letter-spacing:.08em;}
-.cert-date{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.3);}
-
-/* MISSION */
-.mission-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
-.mission-card{padding:32px 28px;border-radius:10px;}
-.mission-icon{font-size:1.8rem;margin-bottom:16px;}
-.mission-title{font-family:'Orbitron',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:8px;}
-.mission-desc{font-size:.88rem;color:rgba(255,255,255,.42);line-height:1.75;}
+/* CTA */
+.cta-wrap{padding:0 5vw 80px;position:relative;z-index:1;}
+.cta-inner{padding:70px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,#ffc300,transparent);}
+.cta-inner::after{content:'TRON';position:absolute;right:-20px;bottom:-40px;font-family:'Orbitron',sans-serif;font-size:10rem;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;user-select:none;}
+.cta-text h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3vw,2.2rem);font-weight:900;margin-bottom:10px;line-height:1.1;}
+.cta-text h2 .hl{color:#ffc300;}
+.cta-text p{font-size:.95rem;color:rgba(255,255,255,.45);max-width:480px;line-height:1.8;}
 
 </style>
 </head>
 <body>
-<div id="cur"></div><div id="cur-ring"></div><div id="cursor-blob"></div>
-<canvas id="particles"></canvas><canvas id="matrix-rain"></canvas>
-<div id="scanlines"></div><div id="scroll-bar"></div><div id="pt-overlay"></div>
-<div class="orb orb1"></div><div class="orb orb2"></div>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="cursor-blob"></div>
+<canvas id="particles"></canvas>
+<canvas id="matrix-rain"></canvas>
+<div id="scanlines"></div>
+<div id="scroll-bar"></div>
+<div id="pt-overlay"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
 <div id="loader">
   <div class="loader-logo">TRON DEVELOPS</div>
   <div class="loader-sub">// digital agency</div>
   <div class="loader-terminal"></div>
   <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
 </div>
+
 <nav>
-  <a href="index.html" class="nav-logo"><div class="nav-logo-box">TD</div>TRON DEVELOPS</a>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-box">TD</div>
+    TRON DEVELOPS
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -246,168 +261,157 @@ footer a{color:#ffc300;text-decoration:none;}
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu">
-  <a href="index.html">Home</a><a href="about.html">About</a>
-  <a href="services.html">Services</a><a href="projects.html">Projects</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
   <a href="contact.html">Start a Project →</a>
 </div>
 
-<section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
-    <p class="s-tag reveal">About</p>
-    <h1 class="page-title reveal">The <span class="hl">Mind</span><br>Behind the Agency</h1>
-    <p class="page-sub reveal">Built from nothing in Srinagar, Kashmir. Powered by curiosity and craft.</p>
+
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Tron Develops — Digital Agency — Srinagar</div>
+    <h1 class="hero-title">
+      <span class="line1">TRON</span>
+      <span class="line2">DEVELOPS</span>
+    </h1>
+    <div class="hero-tagline">Your Growth Partner</div>
+    <p class="hero-desc">
+      A forward-thinking digital agency specializing in <strong>web development</strong>,
+      <strong>digital marketing</strong>, <strong>SEO</strong>, and <strong>content strategy</strong>.
+      We don't build websites. We build weapons.
+    </p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn btn-gold">Start a Project →</a>
+      <a href="services.html" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+  <div class="hero-right hero-stats">
+    <div class="hero-stat-card glass-dark">
+      <div class="h-stat-num" data-count="50" data-suffix="+">0+</div>
+      <div class="h-stat-label">Projects Done</div>
+    </div>
+    <div class="hero-stat-card glass-dark">
+      <div class="h-stat-num" data-count="30" data-suffix="+">0+</div>
+      <div class="h-stat-label">Happy Clients</div>
+    </div>
+    <div class="hero-stat-card glass-dark">
+      <div class="h-stat-num" data-count="4" data-suffix="+">0+</div>
+      <div class="h-stat-label">Years Active</div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-inner">
-    <div class="founder-grid">
-      <div class="founder-card glass reveal">
-        <div class="founder-avatar">UB</div>
-        <div class="founder-name">Uzaid Bhat</div>
-        <div class="founder-role">Founder &amp; Digital Strategist</div>
-        <div class="founder-contacts">
-          <a href="mailto:bhatuzaid6@gmail.com" class="contact-pill"><span>📧</span>bhatuzaid6@gmail.com</a>
-          <a href="tel:+919682376204" class="contact-pill"><span>📞</span>+91 9682376204</a>
-          <a href="https://linkedin.com/in/uzaid-bhat/" target="_blank" class="contact-pill"><span>💼</span>linkedin.com/in/uzaid-bhat</a>
-          <a href="mailto:trondevelops@gmail.com" class="contact-pill"><span>🏢</span>trondevelops@gmail.com</a>
-          <div class="contact-pill"><span>📍</span>Soura, Srinagar, Kashmir</div>
-        </div>
-      </div>
-      <div class="reveal">
-        <p class="founder-bio">
-          I'm <strong>Uzaid Bhat</strong> — a digital strategist, web developer, and content creator based in Srinagar, Kashmir. I founded <strong>Tron Develops</strong> with one mission: help businesses build a digital presence that actually works.
-        </p>
-        <p class="founder-bio" style="margin-top:12px;">
-          With <strong>4+ years of experience</strong> across SEO, web development, content writing, graphic design, and video editing — I bring a full-stack perspective to every project. I've worked with international nonprofits, local tech firms, and freelance clients across India and beyond.
-        </p>
-        <p class="founder-bio" style="margin-top:12px;">
-          Currently pursuing my <strong>BCA from IGNOU</strong> while running the agency full-time. Languages: English, Urdu, Kashmiri, Hindi.
-        </p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;">
-          <a href="contact.html" class="btn btn-gold">Work With Me →</a>
-          <a href="projects.html" class="btn btn-outline">See My Work</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:rgba(255,195,0,.015);border-top:1px solid rgba(255,195,0,.06);border-bottom:1px solid rgba(255,195,0,.06);">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <p class="s-tag">Capabilities</p>
-      <h2 class="s-title">Skills &amp; <span class="hl">Tools</span></h2>
-    </div>
-    <div style="margin-bottom:40px;">
-      <p class="s-tag reveal" style="margin-bottom:16px;">Core Skills</p>
-      <div class="skills-grid reveal">
-        <span class="skill-chip">Digital Marketing &amp; SEO</span>
-        <span class="skill-chip">Website Development</span>
-        <span class="skill-chip">Content Writing</span>
-        <span class="skill-chip">Copywriting</span>
-        <span class="skill-chip">Graphic Design</span>
-        <span class="skill-chip">Video Editing</span>
-        <span class="skill-chip">Social Media Strategy</span>
-        <span class="skill-chip">Client Management</span>
-        <span class="skill-chip">Google Analytics</span>
-        <span class="skill-chip">GitHub Deployment</span>
-        <span class="skill-chip">Field Sales</span>
-        <span class="skill-chip">Research &amp; Presentations</span>
-      </div>
-    </div>
-    <div>
-      <p class="s-tag reveal" style="margin-bottom:16px;">Tools &amp; Platforms</p>
-      <div class="tools-grid reveal">
-        <div class="tool-item glass"><div class="tool-icon">🌐</div>WordPress</div>
-        <div class="tool-item glass"><div class="tool-icon">📝</div>Blogger</div>
-        <div class="tool-item glass"><div class="tool-icon">🎨</div>Canva</div>
-        <div class="tool-item glass"><div class="tool-icon">✨</div>Adobe Express</div>
-        <div class="tool-item glass"><div class="tool-icon">🎬</div>DaVinci Resolve</div>
-        <div class="tool-item glass"><div class="tool-icon">✂️</div>Clipchamp</div>
-        <div class="tool-item glass"><div class="tool-icon">🐙</div>GitHub</div>
-        <div class="tool-item glass"><div class="tool-icon">📊</div>Google Analytics</div>
-        <div class="tool-item glass"><div class="tool-icon">🔍</div>Search Console</div>
-        <div class="tool-item glass"><div class="tool-icon">🤖</div>ChatGPT</div>
-        <div class="tool-item glass"><div class="tool-icon">📑</div>MS Office</div>
-        <div class="tool-item glass"><div class="tool-icon">💻</div>HTML/CSS</div>
-        <div class="tool-item glass"><div class="tool-icon">💼</div>Fiverr</div>
-        <div class="tool-item glass"><div class="tool-icon">🌍</div>Freelancer</div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="ticker-wrap"><div class="ticker-track">
+  <span>Web Development</span><span class="sep">◈</span><span>SEO</span><span class="sep">◈</span>
+  <span>Digital Marketing</span><span class="sep">◈</span><span>Content Writing</span><span class="sep">◈</span>
+  <span>Graphic Design</span><span class="sep">◈</span><span>Video Editing</span><span class="sep">◈</span>
+  <span>Social Media</span><span class="sep">◈</span><span>WordPress</span><span class="sep">◈</span>
+  <span>Web Development</span><span class="sep">◈</span><span>SEO</span><span class="sep">◈</span>
+  <span>Digital Marketing</span><span class="sep">◈</span><span>Content Writing</span><span class="sep">◈</span>
+  <span>Graphic Design</span><span class="sep">◈</span><span>Video Editing</span><span class="sep">◈</span>
+  <span>Social Media</span><span class="sep">◈</span><span>WordPress</span><span class="sep">◈</span>
+</div></div>
 
 <section class="section">
   <div class="section-inner">
     <div class="section-header reveal">
-      <p class="s-tag">Experience</p>
-      <h2 class="s-title">Work <span class="hl">History</span></h2>
+      <p class="s-tag">What We Do</p>
+      <h2 class="s-title">Our <span class="hl">Services</span></h2>
+      <p class="s-sub">Everything you need to dominate your digital presence — all under one roof.</p>
     </div>
-    <div class="tl">
-      <div class="tl-item reveal">
-        <div class="tl-date">Oct–Dec 2024</div>
-        <div class="tl-line"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">Digital Marketing Executive</div>
-          <div class="tl-company">Harmukh Technologies · On-site</div>
-          <p class="tl-desc">Managed SEO, content strategy, and digital marketing for a growing Kashmiri tech firm.</p>
-        </div>
+    <div class="svc-grid">
+      <div class="service-card card reveal rd1">
+        <div class="svc-icon">🌐</div>
+        <div class="svc-name">Web Development</div>
+        <p class="svc-desc">Fast, modern, pixel-perfect websites built for performance and conversions.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">Sep 2023–Sep 2024</div>
-        <div class="tl-line"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">Store Manager</div>
-          <div class="tl-company">Asus · On-site</div>
-          <p class="tl-desc">Managed store operations, customer relations, and sales for an Asus retail outlet.</p>
-        </div>
+      <div class="service-card card reveal rd2">
+        <div class="svc-icon">📈</div>
+        <div class="svc-name">SEO & Digital Marketing</div>
+        <p class="svc-desc">Data-driven strategies that move you up rankings and turn visitors into clients.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">Jan 2022–Present</div>
-        <div class="tl-line"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">Freelance Digital Marketer</div>
-          <div class="tl-company">Self-Employed · Fiverr · Freelancer</div>
-          <p class="tl-desc">SEO, content writing, web development, and social media management for clients globally.</p>
-        </div>
+      <div class="service-card card reveal rd3">
+        <div class="svc-icon">✍️</div>
+        <div class="svc-name">Content Writing</div>
+        <p class="svc-desc">Compelling copy, SEO blogs, and brand storytelling that builds real authority.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">2023–2024</div>
-        <div class="tl-line"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">Promotional Blogger</div>
-          <div class="tl-company">Marpu Foundation · Two Terms</div>
-          <p class="tl-desc">Wrote promotional content and blog posts driving awareness for community programs.</p>
-        </div>
+      <div class="service-card card reveal rd1">
+        <div class="svc-icon">🎨</div>
+        <div class="svc-name">Graphic Design</div>
+        <p class="svc-desc">Brand identity, social graphics, and visual content using Canva and Adobe Express.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">2023–2024</div>
-        <div class="tl-line"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">Content Writer</div>
-          <div class="tl-company">Earth5R · Two Terms</div>
-          <p class="tl-desc">Created sustainability and environmental content for an international nonprofit over two terms.</p>
-        </div>
+      <div class="service-card card reveal rd2">
+        <div class="svc-icon">🎬</div>
+        <div class="svc-name">Video Editing</div>
+        <p class="svc-desc">Promo videos and reels edited with DaVinci Resolve and Clipchamp that convert.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
+      </div>
+      <div class="service-card card reveal rd3">
+        <div class="svc-icon">📱</div>
+        <div class="svc-name">Social Media Strategy</div>
+        <p class="svc-desc">Content calendars, community management, and growth strategy across platforms.</p>
+        <a href="services.html" class="svc-link">Explore →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:rgba(255,195,0,.015);border-top:1px solid rgba(255,195,0,.06);border-bottom:1px solid rgba(255,195,0,.06);">
+<section class="section" style="background:rgba(255,195,0,.018);border-top:1px solid rgba(255,195,0,.06);border-bottom:1px solid rgba(255,195,0,.06);">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <p class="s-tag">Credentials</p>
-      <h2 class="s-title">Certifi<span class="hl">cations</span></h2>
-    </div>
-    <div class="certs-grid">
-      <div class="cert-card glass reveal rd1"><div class="cert-icon">🏅</div><div><div class="cert-name">Intel AI Foundations</div><div class="cert-issuer">Intel Corporation</div><div class="cert-date">Oct 2024</div></div></div>
-      <div class="cert-card glass reveal rd2"><div class="cert-icon">📊</div><div><div class="cert-name">Google Digital Marketing</div><div class="cert-issuer">Google Fundamentals</div><div class="cert-date">Jul 2024</div></div></div>
-      <div class="cert-card glass reveal rd3"><div class="cert-icon">📑</div><div><div class="cert-name">Excel &amp; Spreadsheets</div><div class="cert-issuer">Tata LearnVista</div><div class="cert-date">Oct 2024</div></div></div>
-      <div class="cert-card glass reveal rd1"><div class="cert-icon">🎨</div><div><div class="cert-name">Graphic Design</div><div class="cert-issuer">MindLuster</div><div class="cert-date">Jun 2023</div></div></div>
-      <div class="cert-card glass reveal rd2"><div class="cert-icon">🤖</div><div><div class="cert-name">AI Foundations</div><div class="cert-issuer">Accenture</div><div class="cert-date">Aug 2022</div></div></div>
-      <div class="cert-card glass reveal rd3"><div class="cert-icon">📱</div><div><div class="cert-name">Digital Marketing</div><div class="cert-issuer">Accenture</div><div class="cert-date">Aug 2022</div></div></div>
+    <div class="why-grid">
+      <div>
+        <p class="s-tag reveal">Why Tron Develops</p>
+        <h2 class="s-title reveal" style="margin-bottom:36px;">Built for <span class="hl">Results</span>,<br>Not Clout</h2>
+        <div class="why-list">
+          <div class="why-item reveal rd1">
+            <div class="why-num">01</div>
+            <div class="why-item-body">
+              <div class="why-item-title">Fast & Modern</div>
+              <div class="why-item-desc">Every pixel optimized. Every line of code clean. Speed is not optional.</div>
+            </div>
+          </div>
+          <div class="why-item reveal rd2">
+            <div class="why-num">02</div>
+            <div class="why-item-body">
+              <div class="why-item-title">Client-Obsessed</div>
+              <div class="why-item-desc">Your goals run the project. We listen, adapt, and deliver.</div>
+            </div>
+          </div>
+          <div class="why-item reveal rd3">
+            <div class="why-num">03</div>
+            <div class="why-item-body">
+              <div class="why-item-title">Proven Track Record</div>
+              <div class="why-item-desc">50+ projects. Clients who come back. Real results, not promises.</div>
+            </div>
+          </div>
+          <div class="why-item reveal rd4">
+            <div class="why-num">04</div>
+            <div class="why-item-body">
+              <div class="why-item-title">Full-Stack Digital</div>
+              <div class="why-item-desc">One agency for everything — no fragmented vendors, no finger-pointing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right glass-gold reveal">
+        <div class="why-stat-grid">
+          <div class="why-stat"><div class="why-stat-num" data-count="50" data-suffix="+">0+</div><div class="why-stat-label">Projects</div></div>
+          <div class="why-stat"><div class="why-stat-num" data-count="30" data-suffix="+">0+</div><div class="why-stat-label">Clients</div></div>
+          <div class="why-stat"><div class="why-stat-num" data-count="4" data-suffix="+">0+</div><div class="why-stat-label">Years Exp</div></div>
+          <div class="why-stat"><div class="why-stat-num" data-count="100" data-suffix="%">0%</div><div class="why-stat-label">Dedication</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -415,23 +419,52 @@ footer a{color:#ffc300;text-decoration:none;}
 <section class="section">
   <div class="section-inner">
     <div class="section-header reveal">
-      <p class="s-tag">Mission</p>
-      <h2 class="s-title">What We <span class="hl">Stand For</span></h2>
+      <p class="s-tag">How It Works</p>
+      <h2 class="s-title">The <span class="hl">Process</span></h2>
+      <p class="s-sub">Four steps from first conversation to live results.</p>
     </div>
-    <div class="mission-grid">
-      <div class="mission-card card reveal rd1"><div class="mission-icon">⚡</div><div class="mission-title">Innovation</div><p class="mission-desc">We stay ahead of trends so our clients don't have to. Always learning, always shipping.</p></div>
-      <div class="mission-card card reveal rd2"><div class="mission-icon">🎯</div><div class="mission-title">Quality</div><p class="mission-desc">No shortcuts. Every deliverable is something we're proud to put our name on.</p></div>
-      <div class="mission-card card reveal rd3"><div class="mission-icon">🤝</div><div class="mission-title">Client-Centered</div><p class="mission-desc">Your success is our success. We treat every project like it's our own business on the line.</p></div>
-      <div class="mission-card card reveal rd4"><div class="mission-icon">📈</div><div class="mission-title">Long-Term Growth</div><p class="mission-desc">We build relationships, not just deliverables. Most clients come back — that's the real metric.</p></div>
+    <div class="process-row reveal">
+      <div class="process-step">
+        <div class="proc-num">01</div>
+        <div class="proc-title">Discovery</div>
+        <div class="proc-desc">We learn your goals, audience, competitors, and what winning looks like for you.</div>
+      </div>
+      <div class="process-step">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Strategy</div>
+        <div class="proc-desc">We map the plan — scope, tools, timeline, KPIs. No guesswork.</div>
+      </div>
+      <div class="process-step">
+        <div class="proc-num">03</div>
+        <div class="proc-title">Execute</div>
+        <div class="proc-desc">We build and ship with precision. You get updates, not surprises.</div>
+      </div>
+      <div class="process-step">
+        <div class="proc-num">04</div>
+        <div class="proc-title">Launch & Grow</div>
+        <div class="proc-desc">We go live and keep optimizing. The work doesn't stop at delivery.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="cta-wrap reveal">
+  <div class="cta-inner glass-dark">
+    <div class="cta-text">
+      <h2>Ready to build something <span class="hl">unstoppable?</span></h2>
+      <p>Whether it's your first website or a full digital overhaul — we've got you. Let's talk.</p>
+    </div>
+    <a href="contact.html" class="btn btn-gold">Start a Project →</a>
+  </div>
+</div>
+
 
 <footer>
   <div class="footer-logo">TRON DEVELOPS</div>
   <p>© 2026 Tron Develops · Founded by <a href="about.html">Uzaid Bhat</a> · Srinagar, Kashmir</p>
   <p>Your Growth Partner in the Digital Era</p>
 </footer>
+
 <script>
 (function(){
 
