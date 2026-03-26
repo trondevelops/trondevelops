@@ -6,17 +6,26 @@
 <title>About — Tron Develops</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet"/>
 <style>
-/* ... existing root and base styles ... */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0; max-width: 100%; overflow-wrap: break-word;}
 
-@media (max-width: 768px) {
-  nav { padding: 12px 4vw; }
-  .nav-logo { font-size: 0.75rem; }
-  .about-hero-content { padding-top: 100px; }
-  .stats-grid { grid-template-columns: 1fr 1fr !important; }
-  .values-grid { grid-template-columns: 1fr !important; }
+:root {
+  --bg:       #000000;
+  --bg2:      #080808;
+  --bg3:      #0f0f0f;
+  --surface:  rgba(255,255,255,0.03);
+  --glass:    rgba(255,255,255,0.05);
+  --glass2:   rgba(255,255,255,0.08);
+  --border:   rgba(255,255,255,0.08);
+  --border2:  rgba(255,255,255,0.15);
+  --text:     #ffffff;
+  --muted:    rgba(255,255,255,0.45);
+  --muted2:   rgba(255,255,255,0.25);
+  --accent:   #ffffff;
+  --purple:     #c0c0c0;
+  --purple2:    #d8d8d8;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
 body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:none;min-height:100vh;}
 
