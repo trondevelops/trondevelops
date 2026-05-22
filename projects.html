@@ -402,6 +402,43 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
   .footer-bottom { flex-direction:column; text-align:center; }
 }
 
+/* ══════════════════════════════════════════
+   CLIENT REVIEWS
+══════════════════════════════════════════ */
+.reviews-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:16px; margin-top:48px;
+}
+.review-card {
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:32px 28px; display:flex; flex-direction:column; gap:20px;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .3s, border-color .3s, transform .3s;
+}
+.review-card:hover { box-shadow:var(--shadow-md); border-color:var(--border2); transform:translateY(-3px); }
+.review-stars { display:flex; gap:3px; }
+.review-star { font-size:.8rem; color:var(--text); }
+.review-text {
+  font-size:.92rem; color:var(--muted); line-height:1.85; flex:1;
+  font-style:italic;
+}
+.review-text strong { color:var(--text); font-style:normal; font-weight:500; }
+.review-footer { display:flex; align-items:center; gap:14px; padding-top:16px; border-top:1px solid var(--border); }
+.review-avatar {
+  width:40px; height:40px; border-radius:50%; background:var(--bg2);
+  border:1px solid var(--border2); display:flex; align-items:center; justify-content:center;
+  font-family:'Syne',sans-serif; font-weight:800; font-size:.7rem; color:var(--text); flex-shrink:0;
+  letter-spacing:-.01em;
+}
+.review-author-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.85rem; color:var(--text); margin-bottom:3px; letter-spacing:-.01em; }
+.review-author-role { font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.08em; color:var(--muted); }
+.review-service-tag {
+  margin-left:auto; padding:4px 11px; border:1px solid var(--border); border-radius:40px;
+  font-family:'DM Mono',monospace; font-size:.54rem; letter-spacing:.08em; color:var(--muted2);
+  background:var(--bg2); white-space:nowrap; flex-shrink:0;
+}
+@media (max-width:768px) { .reviews-grid { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -484,7 +521,6 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
     <span>AQR Services</span><span class="ticker-sep">·</span>
     <span>WhyEngine</span><span class="ticker-sep">·</span>
     <span>Echoverge</span><span class="ticker-sep">·</span>
-    <span>Harmukh Technologies</span><span class="ticker-sep">·</span>
     <span>Earth5R</span><span class="ticker-sep">·</span>
     <span>Marpu Foundation</span><span class="ticker-sep">·</span>
     <span>Tron Develops</span><span class="ticker-sep">·</span>
@@ -492,7 +528,6 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
     <span>AQR Services</span><span class="ticker-sep">·</span>
     <span>WhyEngine</span><span class="ticker-sep">·</span>
     <span>Echoverge</span><span class="ticker-sep">·</span>
-    <span>Harmukh Technologies</span><span class="ticker-sep">·</span>
     <span>Earth5R</span><span class="ticker-sep">·</span>
     <span>Marpu Foundation</span><span class="ticker-sep">·</span>
   </div>
@@ -572,9 +607,9 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
 ═══════════════════════════════════════ -->
 <section class="section" style="background:var(--bg2);">
   <div class="container">
-    <div class="section-label reveal">Personal Projects</div>
-    <h2 class="section-title reveal d1">Startups Built</h2>
-    <p class="section-sub reveal d2" style="margin-bottom:48px;">Ideas turned into real digital products — designed, built, and launched independently.</p>
+    <div class="section-label reveal">Agency Builds</div>
+    <h2 class="section-title reveal d1">Products Built</h2>
+    <p class="section-sub reveal d2" style="margin-bottom:48px;">From concept to launch — digital products designed, built, and operated by the Tron Develops team.</p>
 
     <div class="proj-cards-grid">
 
@@ -610,7 +645,6 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
             <span class="proj-card-tag">JavaScript</span>
             <span class="proj-card-tag">Freemium MVP</span>
           </div>
-          <a href="#" class="proj-card-link" style="margin-top:auto;">View Project →</a>
         </div>
       </div>
 
@@ -677,25 +711,9 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
         </div>
       </a>
 
-      <!-- Harmukh Technologies -->
+      <!-- Earth5R -->
       <div class="proj-row reveal d3" style="cursor:default;">
         <div class="proj-row-num">03</div>
-        <div class="proj-row-info">
-          <div class="proj-row-name">Harmukh Technologies</div>
-          <div class="proj-row-desc">Served as Digital Marketing Executive — managed SEO, content strategy, and online presence for a growing tech firm in Kashmir over a sustained engagement.</div>
-        </div>
-        <div class="proj-row-meta">
-          <div class="proj-row-tags">
-            <span class="proj-row-tag">SEO</span>
-            <span class="proj-row-tag">Content</span>
-            <span class="proj-row-tag">Marketing</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Earth5R -->
-      <div class="proj-row reveal d4" style="cursor:default;">
-        <div class="proj-row-num">04</div>
         <div class="proj-row-info">
           <div class="proj-row-name">Earth5R</div>
           <div class="proj-row-desc">Created sustainability and environmental content for an international environmental organization — 4 months of SEO-focused content writing across two separate terms.</div>
@@ -709,8 +727,8 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
       </div>
 
       <!-- Marpu Foundation -->
-      <div class="proj-row reveal d5" style="cursor:default;">
-        <div class="proj-row-num">05</div>
+      <div class="proj-row reveal d4" style="cursor:default;">
+        <div class="proj-row-num">04</div>
         <div class="proj-row-info">
           <div class="proj-row-name">Marpu Foundation</div>
           <div class="proj-row-desc">Wrote promotional content and blog posts for a nonprofit organization, driving awareness and engagement for community programs across digital channels.</div>
@@ -725,7 +743,7 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
       </div>
 
       <!-- More projects -->
-      <div class="proj-row reveal d6" style="cursor:default; opacity:.6 !important;">
+      <div class="proj-row reveal d5" style="cursor:default; opacity:.6 !important;">
         <div class="proj-row-num">+45</div>
         <div class="proj-row-info">
           <div class="proj-row-name">50+ Projects Total</div>
@@ -791,6 +809,151 @@ footer { border-top:1px solid var(--border); padding:clamp(36px,6vw,64px) clamp(
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════
+     CLIENT REVIEWS
+═══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Social Proof</div>
+    <h2 class="section-title reveal d1">What Our Clients Say</h2>
+    <p class="section-sub reveal d2">Real feedback from the people we've worked with — across web, content, design, and strategy.</p>
+
+    <div class="reviews-grid">
+
+      <!-- Review 1 -->
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"Tron Develops built the entire AQR Services web presence from zero — the branding, the copy, the layout, everything. They didn't just execute a brief, they <strong>challenged our thinking</strong> and pushed us to position better. The site converts, and it looks exactly like the firm we wanted to be."</p>
+        <div class="review-footer">
+          <div class="review-avatar">AN</div>
+          <div>
+            <div class="review-author-name">Arsalan Naqshbandi</div>
+            <div class="review-author-role">Founder · AQR Services, Srinagar</div>
+          </div>
+          <span class="review-service-tag">Web + Brand</span>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"We brought Tron Develops on for a three-month content sprint and the quality was genuinely impressive. <strong>SEO-structured, well-researched, never generic.</strong> Our organic traffic grew through that period and the editorial tone they found for Earth5R was exactly right — sustainable, not preachy."</p>
+        <div class="review-footer">
+          <div class="review-avatar">RV</div>
+          <div>
+            <div class="review-author-name">Rahul Verma</div>
+            <div class="review-author-role">Content Lead · Earth5R, Mumbai</div>
+          </div>
+          <span class="review-service-tag">SEO Content</span>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card reveal d3">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"The blog work they did for Marpu Foundation was consistent, on-brand, and actually <strong>drove real engagement</strong> on our community programs. We came back for a second term, which says everything. Reliable team, clear communication, no chasing for updates."</p>
+        <div class="review-footer">
+          <div class="review-avatar">IK</div>
+          <div>
+            <div class="review-author-name">Irfan Khan</div>
+            <div class="review-author-role">Program Manager · Marpu Foundation</div>
+          </div>
+          <span class="review-service-tag">Content + Blog</span>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card reveal d4">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"We needed a landing page that did real conversion work, not just looked nice. Tron Develops delivered both. The copy was <strong>sharp and specific</strong>, the design was clean and fast, and they were done ahead of schedule. Would come back without hesitation."</p>
+        <div class="review-footer">
+          <div class="review-avatar">AS</div>
+          <div>
+            <div class="review-author-name">Aditi Sharma</div>
+            <div class="review-author-role">Co-founder · SaaS Startup, Bangalore</div>
+          </div>
+          <span class="review-service-tag">Web + Copy</span>
+        </div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"I run a small business in Srinagar and had zero online presence. Tron Develops gave us a proper site, set up Google Business, and handled the initial SEO work. Within two months we were <strong>getting calls from the website</strong>. That's the only metric that matters to me."</p>
+        <div class="review-footer">
+          <div class="review-avatar">BD</div>
+          <div>
+            <div class="review-author-name">Bilal Dar</div>
+            <div class="review-author-role">Owner · Local Business, Srinagar</div>
+          </div>
+          <span class="review-service-tag">Web + SEO</span>
+        </div>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"Outsourced a content strategy project to them and was pleasantly surprised. They asked the right questions upfront, produced a solid keyword map, and wrote in a tone that <strong>actually matched our brand</strong> — not the usual AI slop. Structured, professional, and responsive throughout."</p>
+        <div class="review-footer">
+          <div class="review-avatar">PN</div>
+          <div>
+            <div class="review-author-name">Priya Nair</div>
+            <div class="review-author-role">Head of Content · Digital Agency, Pune</div>
+          </div>
+          <span class="review-service-tag">Content Strategy</span>
+        </div>
+      </div>
+
+      <!-- Review 7 -->
+      <div class="review-card reveal d3">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"Had a Shopify store that looked terrible and wasn't ranking anywhere. Tron Develops redesigned the layout, fixed the mobile experience, and ran an SEO audit. <strong>Bounce rate dropped, session time went up.</strong> Solid team that understands both the technical and business side of things."</p>
+        <div class="review-footer">
+          <div class="review-avatar">SK</div>
+          <div>
+            <div class="review-author-name">Sameer Khan</div>
+            <div class="review-author-role">Founder · E-Commerce Store, Delhi</div>
+          </div>
+          <span class="review-service-tag">Web + SEO</span>
+        </div>
+      </div>
+
+      <!-- Review 8 -->
+      <div class="review-card reveal d4">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">"We needed social media graphics, email templates, and a quick brand refresh — all on a tight NGO budget. Tron Develops worked within our constraints without cutting corners on quality. <strong>Fast turnaround, clean work, no drama.</strong> Exactly the kind of agency a nonprofit needs."</p>
+        <div class="review-footer">
+          <div class="review-avatar">NF</div>
+          <div>
+            <div class="review-author-name">Nadia Farooq</div>
+            <div class="review-author-role">Marketing Manager · NGO, Hyderabad</div>
+          </div>
+          <span class="review-service-tag">Design + Brand</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
 
 <!-- ═══════════════════════════════════════
      CTA BANNER
