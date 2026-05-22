@@ -586,6 +586,121 @@ footer {
   .edge-inner { grid-template-columns: 1fr; gap: 48px; }
   .edge-statement { max-width: 100%; }
 }
+/* ══════════════════════════════════════════
+   HOLOGRAM VISUAL (desktop only)
+══════════════════════════════════════════ */
+.ev-wrap {
+  margin-top: 96px; position: relative;
+  width: 240px; height: 240px;
+}
+@media (max-width: 860px) { .ev-wrap { display: none; } }
+
+.ev-bg-glow {
+  position: absolute; inset: -30px;
+  background: radial-gradient(circle at center, rgba(255,255,255,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ev-ring {
+  position: absolute; border-radius: 50%;
+  top: 50%; left: 50%;
+}
+.ev-r1 {
+  width: 240px; height: 240px;
+  border: 1px solid transparent;
+  border-top-color: rgba(255,255,255,.3);
+  border-right-color: rgba(255,255,255,.07);
+  transform: translate(-50%,-50%);
+  animation: ev-cw 22s linear infinite;
+}
+.ev-r2 {
+  width: 180px; height: 180px;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(255,255,255,.22);
+  border-left-color: rgba(255,255,255,.06);
+  transform: translate(-50%,-50%);
+  animation: ev-ccw 15s linear infinite;
+}
+.ev-r3 {
+  width: 112px; height: 112px;
+  border: 1px solid rgba(255,255,255,.1);
+  transform: translate(-50%,-50%);
+  animation: ev-cw 35s linear infinite;
+}
+.ev-r4 {
+  width: 60px; height: 60px;
+  border: 1px solid rgba(255,255,255,.18);
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(255,255,255,.07) 0%, transparent 70%);
+  animation: ev-pulse 4s ease-in-out infinite;
+}
+.ev-diamond {
+  position: absolute; top: 50%; left: 50%;
+  width: 18px; height: 18px;
+  border: 1px solid rgba(255,255,255,.45);
+  transform: translate(-50%,-50%) rotate(45deg);
+  box-shadow: 0 0 14px rgba(255,255,255,.15), inset 0 0 8px rgba(255,255,255,.06);
+  animation: ev-spin-d 9s linear infinite;
+}
+.ev-scan-clip {
+  position: absolute; top: 50%; left: 50%;
+  width: 112px; height: 112px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%; overflow: hidden; pointer-events: none;
+}
+.ev-scan {
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+  animation: ev-scan 3.2s ease-in-out infinite;
+  top: 0;
+}
+/* stat nodes */
+.ev-node {
+  position: absolute; display: flex; flex-direction: column;
+  align-items: center; gap: 5px; pointer-events: none;
+}
+.ev-node-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(255,255,255,.6);
+  box-shadow: 0 0 10px rgba(255,255,255,.4), 0 0 20px rgba(255,255,255,.15);
+  animation: ev-blink 2.5s ease-in-out infinite;
+}
+.ev-node:nth-child(2) .ev-node-dot { animation-delay: .6s; }
+.ev-node:nth-child(3) .ev-node-dot { animation-delay: 1.2s; }
+.ev-node:nth-child(4) .ev-node-dot { animation-delay: 1.8s; }
+.ev-node-val {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: .8rem; color: rgba(255,255,255,.85);
+  letter-spacing: -.02em; line-height: 1;
+}
+.ev-node-lbl {
+  font-family: 'DM Mono', monospace; font-size: .44rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); white-space: nowrap;
+}
+/* connector lines */
+.ev-line {
+  position: absolute; top: 50%; left: 50%;
+  height: 1px; background: linear-gradient(90deg, rgba(255,255,255,.15), transparent);
+  transform-origin: left center;
+  pointer-events: none;
+}
+@keyframes ev-cw  { to { transform: translate(-50%,-50%) rotate(360deg);  } }
+@keyframes ev-ccw { to { transform: translate(-50%,-50%) rotate(-360deg); } }
+@keyframes ev-pulse {
+  0%,100% { transform: translate(-50%,-50%) scale(1);   opacity:.6; }
+  50%     { transform: translate(-50%,-50%) scale(1.15); opacity:1;  }
+}
+@keyframes ev-spin-d { to { transform: translate(-50%,-50%) rotate(405deg); } }
+@keyframes ev-scan {
+  0%   { top:0%;   opacity:0; }
+  15%  { opacity:1; }
+  85%  { opacity:1; }
+  100% { top:100%; opacity:0; }
+}
+@keyframes ev-blink {
+  0%,100% { opacity:.5; }
+  50%     { opacity:1;  }
+}
 
 </style>
 </head>
@@ -755,6 +870,55 @@ footer {
       <div class="edge-eyebrow">Why Us</div>
       <h2 class="edge-heading">What Sets Us<br><em>Apart.</em></h2>
       <p class="edge-statement">Most agencies either specialise too narrowly or spread too thin. We built Tron Develops around a different model — deep specialisation, cross-discipline collaboration, and a founder's mindset on every project.</p>
+
+      <!-- Hologram visual — desktop only -->
+      <div class="ev-wrap">
+        <div class="ev-bg-glow"></div>
+
+        <!-- Rings -->
+        <div class="ev-ring ev-r1"></div>
+        <div class="ev-ring ev-r2"></div>
+        <div class="ev-ring ev-r3"></div>
+        <div class="ev-ring ev-r4"></div>
+
+        <!-- Core diamond -->
+        <div class="ev-diamond"></div>
+
+        <!-- Scan line clipped to inner ring -->
+        <div class="ev-scan-clip"><div class="ev-scan"></div></div>
+
+        <!-- Connector lines -->
+        <div class="ev-line" style="width:62px; transform:rotate(-52deg);  margin-left:0; margin-top:0;"></div>
+        <div class="ev-line" style="width:62px; transform:rotate(128deg);  margin-left:0; margin-top:0;"></div>
+        <div class="ev-line" style="width:62px; transform:rotate(38deg);   margin-left:0; margin-top:0;"></div>
+        <div class="ev-line" style="width:62px; transform:rotate(218deg);  margin-left:0; margin-top:0;"></div>
+
+        <!-- Stat nodes — positioned on outer ring at cardinal points -->
+        <!-- Top -->
+        <div class="ev-node" style="top:0; left:50%; transform:translate(-50%,-50%);">
+          <div class="ev-node-dot"></div>
+          <div class="ev-node-val">50+</div>
+          <div class="ev-node-lbl">Projects</div>
+        </div>
+        <!-- Right -->
+        <div class="ev-node" style="top:50%; right:0; transform:translate(50%,-50%);">
+          <div class="ev-node-dot"></div>
+          <div class="ev-node-val">4+</div>
+          <div class="ev-node-lbl">Years</div>
+        </div>
+        <!-- Bottom -->
+        <div class="ev-node" style="bottom:0; left:50%; transform:translate(-50%,50%);">
+          <div class="ev-node-dot"></div>
+          <div class="ev-node-val">12+</div>
+          <div class="ev-node-lbl">Clients</div>
+        </div>
+        <!-- Left -->
+        <div class="ev-node" style="top:50%; left:0; transform:translate(-50%,-50%);">
+          <div class="ev-node-dot"></div>
+          <div class="ev-node-val">6</div>
+          <div class="ev-node-lbl">Disciplines</div>
+        </div>
+      </div>
     </div>
 
     <div class="edge-list">
