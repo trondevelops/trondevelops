@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Services offered by Tron Develops — Web development, SEO, digital marketing, content writing, graphic design, video editing, and social media strategy. Based in Srinagar, Kashmir."/>
-<meta name="keywords" content="web development services, SEO services, digital marketing Srinagar, content writing, graphic design Kashmir"/>
+<meta name="description" content="Services offered by Tron Develops — Web development, SEO, digital marketing, content writing, and social media strategy. Based in Srinagar, Kashmir."/>
+<meta name="keywords" content="web development services, SEO services, digital marketing Srinagar, content writing, social media Kashmir"/>
 <meta property="og:title" content="Services — Tron Develops"/>
-<meta property="og:description" content="Six core digital services. One agency. Zero compromises. Web development, SEO, marketing, content, design, and video."/>
+<meta property="og:description" content="Four core digital services. One agency. Zero compromises. Web development, SEO, marketing, and content."/>
 <meta property="og:type" content="website"/>
 <meta name="robots" content="index, follow"/>
 <title>Services — Tron Develops</title>
@@ -280,6 +280,38 @@ hr.divider { border:none; height:1px; background:var(--line); margin:0 clamp(24p
 }
 .hero-meta-divider { width:1px; height:24px; background:var(--border); }
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   CURRENCY TOGGLE
+══════════════════════════════════════════ */
+.currency-toggle-wrap {
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  background:var(--bg2);
+}
+.currency-toggle-inner {
+  max-width:var(--max-w); margin:0 auto;
+  padding:14px clamp(24px,5vw,64px);
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  flex-wrap:wrap;
+}
+.currency-toggle-label {
+  font-family:'DM Mono',monospace; font-size:.62rem;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+}
+.currency-toggle {
+  display:inline-flex; background:var(--bg); border:1px solid var(--border2);
+  border-radius:8px; padding:3px; gap:2px;
+}
+.currency-btn {
+  font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.08em;
+  padding:7px 16px; border:none; background:transparent; color:var(--muted);
+  border-radius:5px; cursor:none; transition:background .2s, color .2s;
+}
+.currency-btn.active { background:var(--text); color:#fff; }
+.currency-toggle-note {
+  font-family:'DM Sans',sans-serif; font-size:.72rem; color:var(--muted2);
+}
+@media (max-width:600px) { .currency-toggle-note { display:none; } }
 
 /* ══════════════════════════════════════════
    TICKER
@@ -684,11 +716,11 @@ footer {
       Everything You Need<br>
       to <span class="dim">Win Online.</span>
     </h1>
-    <p class="page-hero-sub">Six core services. One agency. Zero compromises. We handle the execution while you focus on growing your business.</p>
+    <p class="page-hero-sub">Four core services. One agency. Zero compromises. We handle the execution while you focus on growing your business.</p>
     <div class="hero-meta-row">
       <div class="hero-meta-item">
         <span>Services</span>
-        <strong>6 Core</strong>
+        <strong>4 Core</strong>
       </div>
       <div class="hero-meta-divider"></div>
       <div class="hero-meta-item">
@@ -704,22 +736,30 @@ footer {
   </div>
 </section>
 
-<!-- TICKER -->
+<!-- ═══════════════════════════════════════
+     CURRENCY TOGGLE
+═══════════════════════════════════════ -->
+<div class="currency-toggle-wrap">
+  <div class="currency-toggle-inner">
+    <span class="currency-toggle-label">Pricing shown in:</span>
+    <div class="currency-toggle" id="currency-toggle" role="group" aria-label="Currency selector">
+      <button type="button" class="currency-btn active" data-currency="inr">₹ INR</button>
+      <button type="button" class="currency-btn" data-currency="usd">$ USD</button>
+    </div>
+    <span class="currency-toggle-note">For clients in India / For international clients</span>
+  </div>
+</div>
 <div class="ticker">
   <div class="ticker-track">
     <span>Web Development</span><span class="ticker-sep">·</span>
     <span>SEO &amp; Digital Marketing</span><span class="ticker-sep">·</span>
     <span>Content Strategy</span><span class="ticker-sep">·</span>
-    <span>Graphic Design</span><span class="ticker-sep">·</span>
-    <span>Video Editing</span><span class="ticker-sep">·</span>
     <span>Social Media</span><span class="ticker-sep">·</span>
     <span>WordPress</span><span class="ticker-sep">·</span>
     <span>Brand Identity</span><span class="ticker-sep">·</span>
     <span>Web Development</span><span class="ticker-sep">·</span>
     <span>SEO &amp; Digital Marketing</span><span class="ticker-sep">·</span>
     <span>Content Strategy</span><span class="ticker-sep">·</span>
-    <span>Graphic Design</span><span class="ticker-sep">·</span>
-    <span>Video Editing</span><span class="ticker-sep">·</span>
     <span>Social Media</span><span class="ticker-sep">·</span>
     <span>WordPress</span><span class="ticker-sep">·</span>
     <span>Brand Identity</span><span class="ticker-sep">·</span>
@@ -740,7 +780,7 @@ footer {
           <div class="svc-card-num">01</div>
           <div class="svc-icon-wrap">🌐</div>
           <div class="svc-card-name">Web Development</div>
-          <div class="svc-card-price">Starting at ₹2,500</div>
+          <div class="svc-card-price" data-inr="Starting at ₹6,999" data-usd="Starting at $249">Starting at ₹6,999</div>
           <p class="svc-card-desc">Modern, fast, responsive websites built from scratch or on WordPress — engineered for performance and conversions.</p>
           <ul class="svc-card-list">
             <li>Custom HTML / CSS / JS builds</li>
@@ -756,7 +796,7 @@ footer {
           <div class="svc-card-num">02</div>
           <div class="svc-icon-wrap">📈</div>
           <div class="svc-card-name">SEO &amp; Digital Marketing</div>
-          <div class="svc-card-price">Starting at ₹1,500/mo</div>
+          <div class="svc-card-price" data-inr="Starting at ₹4,999/mo" data-usd="Starting at $199/mo">Starting at ₹4,999/mo</div>
           <p class="svc-card-desc">Rank higher, attract more, convert better. Data-driven growth strategy that delivers measurable results.</p>
           <ul class="svc-card-list">
             <li>On-page &amp; technical SEO</li>
@@ -772,7 +812,7 @@ footer {
           <div class="svc-card-num">03</div>
           <div class="svc-icon-wrap">✍️</div>
           <div class="svc-card-name">Content Writing</div>
-          <div class="svc-card-price">Starting at ₹500/article</div>
+          <div class="svc-card-price" data-inr="Starting at ₹1,499/article" data-usd="Starting at $49/article">Starting at ₹1,499/article</div>
           <p class="svc-card-desc">SEO blogs, landing page copy, and brand stories that actually rank and build real trust with your audience.</p>
           <ul class="svc-card-list">
             <li>Blog articles &amp; SEO content</li>
@@ -786,41 +826,9 @@ footer {
       <div class="svc-card reveal d1">
         <div class="svc-card-inner">
           <div class="svc-card-num">04</div>
-          <div class="svc-icon-wrap">🎨</div>
-          <div class="svc-card-name">Graphic Design</div>
-          <div class="svc-card-price">Starting at ₹300/design</div>
-          <p class="svc-card-desc">Visual identity, social media content, and marketing materials that make your brand instantly recognizable.</p>
-          <ul class="svc-card-list">
-            <li>Logo &amp; brand kits</li>
-            <li>Social media graphics</li>
-            <li>Brochures &amp; flyers</li>
-            <li>Thumbnails &amp; banners</li>
-            <li>Canva &amp; Adobe Express</li>
-          </ul>
-        </div>
-      </div>
-      <div class="svc-card reveal d2">
-        <div class="svc-card-inner">
-          <div class="svc-card-num">05</div>
-          <div class="svc-icon-wrap">🎬</div>
-          <div class="svc-card-name">Video Editing</div>
-          <div class="svc-card-price">Starting at ₹800/video</div>
-          <p class="svc-card-desc">Promo reels, YouTube content, and social clips professionally edited to stop scrolling and drive engagement.</p>
-          <ul class="svc-card-list">
-            <li>Promo &amp; explainer videos</li>
-            <li>Reels &amp; short-form content</li>
-            <li>Captions &amp; motion text</li>
-            <li>DaVinci Resolve &amp; Clipchamp</li>
-            <li>Color grading</li>
-          </ul>
-        </div>
-      </div>
-      <div class="svc-card reveal d3">
-        <div class="svc-card-inner">
-          <div class="svc-card-num">06</div>
           <div class="svc-icon-wrap">📱</div>
           <div class="svc-card-name">Social Media Strategy</div>
-          <div class="svc-card-price">Starting at ₹2,000/mo</div>
+          <div class="svc-card-price" data-inr="Starting at ₹5,999/mo" data-usd="Starting at $249/mo">Starting at ₹5,999/mo</div>
           <p class="svc-card-desc">Content planning, scheduling, and community growth across all major platforms — with analytics to back every decision.</p>
           <ul class="svc-card-list">
             <li>Content calendar planning</li>
@@ -850,7 +858,7 @@ footer {
       <div>
         <div class="svc-detail-label">01 — Web Development</div>
         <h3 class="svc-detail-title">Websites Built<br>to Perform.</h3>
-        <div class="svc-detail-price">Starting at ₹2,500</div>
+        <div class="svc-detail-price" data-inr="Starting at ₹6,999" data-usd="Starting at $249">Starting at ₹6,999</div>
         <p class="svc-detail-desc">Every website we build starts with purpose. Whether it's a single landing page or a multi-page business site, we prioritize speed, SEO structure, and conversion — not just aesthetics.</p>
         <ul class="svc-detail-list">
           <li>Custom coded HTML/CSS/JS websites with no bloat</li>
@@ -883,7 +891,7 @@ footer {
       <div>
         <div class="svc-detail-label">02 — SEO &amp; Digital Marketing</div>
         <h3 class="svc-detail-title">Rankings That<br>Actually Move.</h3>
-        <div class="svc-detail-price">Starting at ₹1,500/mo</div>
+        <div class="svc-detail-price" data-inr="Starting at ₹4,999/mo" data-usd="Starting at $199/mo">Starting at ₹4,999/mo</div>
         <p class="svc-detail-desc">SEO without strategy is just guessing. We build a clear roadmap — from technical audits to keyword targeting — that compounds into sustainable organic growth over time.</p>
         <ul class="svc-detail-list">
           <li>Technical SEO audit and on-page optimization</li>
@@ -916,7 +924,7 @@ footer {
       <div>
         <div class="svc-detail-label">03 — Content Writing</div>
         <h3 class="svc-detail-title">Copy That<br>Converts.</h3>
-        <div class="svc-detail-price">Starting at ₹500/article</div>
+        <div class="svc-detail-price" data-inr="Starting at ₹1,499/article" data-usd="Starting at $49/article">Starting at ₹1,499/article</div>
         <p class="svc-detail-desc">Good content ranks. Great content ranks and converts. We write with both search algorithms and real humans in mind — combining SEO depth with storytelling that actually gets read.</p>
         <ul class="svc-detail-list">
           <li>Long-form SEO blog articles optimized for target keywords</li>
@@ -943,76 +951,12 @@ footer {
       </div>
     </div>
 
-    <!-- 04 Design -->
+    <!-- 04 Social -->
     <div class="service-detail reverse reveal">
       <div>
-        <div class="svc-detail-label">04 — Graphic Design</div>
-        <h3 class="svc-detail-title">Visual Identity<br>That Sticks.</h3>
-        <div class="svc-detail-price">Starting at ₹300/design</div>
-        <p class="svc-detail-desc">Your brand is a visual language. We design logos, social graphics, and marketing materials that are consistent, memorable, and built to scale across every platform.</p>
-        <ul class="svc-detail-list">
-          <li>Logo design and full brand identity kits</li>
-          <li>Social media templates and post graphics</li>
-          <li>Brochures, flyers, and print materials</li>
-          <li>YouTube thumbnails and digital banners</li>
-          <li>Canva, Adobe Express, and Figma workflows</li>
-        </ul>
-        <a href="/contact/" class="svc-detail-cta">Build your brand →</a>
-      </div>
-      <div class="svc-visual reveal d2">
-        <div>
-          <div class="svc-visual-icon">🎨</div>
-          <div class="svc-visual-title">Graphic Design</div>
-          <div class="svc-visual-sub">Logos, brand kits, and marketing visuals that make your business impossible to forget.</div>
-        </div>
-        <div class="svc-visual-tags">
-          <span class="svc-visual-tag">Canva</span>
-          <span class="svc-visual-tag">Adobe Express</span>
-          <span class="svc-visual-tag">Figma</span>
-          <span class="svc-visual-tag">Branding</span>
-        </div>
-        <div class="svc-visual-num">04</div>
-      </div>
-    </div>
-
-    <!-- 05 Video -->
-    <div class="service-detail reveal">
-      <div>
-        <div class="svc-detail-label">05 — Video Editing</div>
-        <h3 class="svc-detail-title">Video That<br>Gets Watched.</h3>
-        <div class="svc-detail-price">Starting at ₹800/video</div>
-        <p class="svc-detail-desc">In a world of endless scrolling, only polished, hook-driven video stops the thumb. We edit promo videos, reels, and YouTube content that actually gets seen — and remembered.</p>
-        <ul class="svc-detail-list">
-          <li>Promo and explainer video editing</li>
-          <li>Instagram and YouTube reels &amp; shorts</li>
-          <li>Motion text, captions, and lower thirds</li>
-          <li>Color grading and audio cleanup</li>
-          <li>DaVinci Resolve and Clipchamp workflows</li>
-        </ul>
-        <a href="/contact/" class="svc-detail-cta">Elevate your video →</a>
-      </div>
-      <div class="svc-visual reveal d2">
-        <div>
-          <div class="svc-visual-icon">🎬</div>
-          <div class="svc-visual-title">Video Editing</div>
-          <div class="svc-visual-sub">Reels, promos, and YouTube content edited to stop scrolling and drive real engagement.</div>
-        </div>
-        <div class="svc-visual-tags">
-          <span class="svc-visual-tag">DaVinci Resolve</span>
-          <span class="svc-visual-tag">Clipchamp</span>
-          <span class="svc-visual-tag">Reels</span>
-          <span class="svc-visual-tag">Color Grade</span>
-        </div>
-        <div class="svc-visual-num">05</div>
-      </div>
-    </div>
-
-    <!-- 06 Social -->
-    <div class="service-detail reverse reveal">
-      <div>
-        <div class="svc-detail-label">06 — Social Media Strategy</div>
+        <div class="svc-detail-label">04 — Social Media Strategy</div>
         <h3 class="svc-detail-title">Social Presence<br>That Grows.</h3>
-        <div class="svc-detail-price">Starting at ₹2,000/mo</div>
+        <div class="svc-detail-price" data-inr="Starting at ₹5,999/mo" data-usd="Starting at $249/mo">Starting at ₹5,999/mo</div>
         <p class="svc-card-desc" style="font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:28px;">Posting without strategy is noise. We build content calendars, create platform-specific posts, and manage community engagement — all backed by analytics so you know exactly what's working.</p>
         <ul class="svc-detail-list">
           <li>Monthly content calendar creation and scheduling</li>
@@ -1036,7 +980,7 @@ footer {
           <span class="svc-visual-tag">YouTube</span>
           <span class="svc-visual-tag">Analytics</span>
         </div>
-        <div class="svc-visual-num">06</div>
+        <div class="svc-visual-num">04</div>
       </div>
     </div>
 
@@ -1059,7 +1003,7 @@ footer {
       <div class="pkg-card">
         <span class="pkg-badge">Starter</span>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">₹3,999</div>
+        <div class="pkg-price" data-inr="₹7,999" data-usd="$299">₹7,999</div>
         <div class="pkg-price-per">one-time · no recurring fees</div>
         <p class="pkg-desc">Perfect for launching your online presence for the first time.</p>
         <div class="pkg-divider"></div>
@@ -1092,7 +1036,7 @@ footer {
       <div class="pkg-card featured">
         <span class="pkg-badge pop">Most Popular</span>
         <div class="pkg-name">Growth</div>
-        <div class="pkg-price">₹8,999</div>
+        <div class="pkg-price" data-inr="₹19,999" data-usd="$699">₹19,999</div>
         <div class="pkg-price-per">per month · cancel anytime</div>
         <p class="pkg-desc">For businesses ready to scale seriously and compete online.</p>
         <div class="pkg-divider"></div>
@@ -1129,7 +1073,7 @@ footer {
       <div class="pkg-card">
         <span class="pkg-badge">Full Suite</span>
         <div class="pkg-name">Pro</div>
-        <div class="pkg-price">₹17,999</div>
+        <div class="pkg-price" data-inr="₹39,999" data-usd="$1,499">₹39,999</div>
         <div class="pkg-price-per">per month · full domination</div>
         <p class="pkg-desc">Complete digital operations — everything we offer, fully managed.</p>
         <div class="pkg-divider"></div>
@@ -1254,7 +1198,6 @@ footer {
         <a href="/services/">Web Development</a>
         <a href="/services/">SEO &amp; Marketing</a>
         <a href="/services/">Content Writing</a>
-        <a href="/services/">Graphic Design</a>
         <a href="/services/">Social Media</a>
       </div>
     </div>
@@ -1355,6 +1298,22 @@ footer {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(function(el) { observer.observe(el); });
+
+  /* ── CURRENCY TOGGLE ── */
+  var currencyToggle = document.getElementById('currency-toggle');
+  if (currencyToggle) {
+    var priceEls = document.querySelectorAll('[data-inr][data-usd]');
+    var currencyBtns = currencyToggle.querySelectorAll('.currency-btn');
+    currencyToggle.addEventListener('click', function(e) {
+      var btn = e.target.closest('.currency-btn');
+      if (!btn) return;
+      var currency = btn.getAttribute('data-currency');
+      currencyBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
+      priceEls.forEach(function(el) {
+        el.textContent = currency === 'usd' ? el.getAttribute('data-usd') : el.getAttribute('data-inr');
+      });
+    });
+  }
 
   /* ── PAGE TRANSITIONS ── */
   var pt = document.getElementById('pt');
