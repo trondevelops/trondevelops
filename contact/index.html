@@ -415,6 +415,18 @@ nav.scrolled { background: rgba(250,250,249,.96); border-color: var(--border2); 
 }
 .budget-label:hover { border-color: var(--border2); background: var(--bg3); }
 
+/* Mini currency toggle (contact form) */
+.currency-toggle-mini {
+  display: inline-flex; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 7px; padding: 2px; gap: 2px; margin-bottom: 10px;
+}
+.currency-btn-mini {
+  font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .06em;
+  padding: 5px 12px; border: none; background: transparent; color: var(--muted);
+  border-radius: 5px; cursor: none; transition: background .2s, color .2s;
+}
+.currency-btn-mini.active { background: var(--text); color: #fff; }
+
 /* Submit button */
 .submit-btn {
   width: 100%; padding: 15px;
@@ -649,22 +661,22 @@ footer {
       <!-- ── Form Column ── -->
       <div class="form-card reveal d2">
         <div class="form-card-label">Book a Project</div>
-        <form id="contact-form" onsubmit="return false;">
+        <form id="contact-form" action="https://formspree.io/f/xyegdggo" method="POST">
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Your Name</label>
-              <input type="text" class="form-input" placeholder="Uzaid Bhat" required/>
+              <input type="text" name="name" class="form-input" placeholder="Uzaid Bhat" required/>
             </div>
             <div class="form-group">
               <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="you@example.com" required/>
+              <input type="email" name="email" class="form-input" placeholder="you@example.com" required/>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Service Needed</label>
-            <select class="form-select">
+            <select class="form-select" name="service">
               <option value="">Select a service...</option>
               <option>Web Development</option>
               <option>SEO &amp; Digital Marketing</option>
@@ -679,19 +691,23 @@ footer {
 
           <div class="form-group">
             <label class="form-label">Budget Range</label>
+            <div class="currency-toggle-mini" id="currency-toggle-mini" role="group" aria-label="Currency selector">
+              <button type="button" class="currency-btn-mini active" data-currency="inr">₹ INR</button>
+              <button type="button" class="currency-btn-mini" data-currency="usd">$ USD</button>
+            </div>
             <div class="budget-grid">
-              <div><input type="radio" class="budget-opt" name="budget" id="b1"/><label class="budget-label" for="b1">Under ₹5K</label></div>
-              <div><input type="radio" class="budget-opt" name="budget" id="b2"/><label class="budget-label" for="b2">₹5K – 15K</label></div>
-              <div><input type="radio" class="budget-opt" name="budget" id="b3"/><label class="budget-label" for="b3">₹15K – 50K</label></div>
-              <div><input type="radio" class="budget-opt" name="budget" id="b4"/><label class="budget-label" for="b4">₹50K – 1L</label></div>
-              <div><input type="radio" class="budget-opt" name="budget" id="b5"/><label class="budget-label" for="b5">₹1L+</label></div>
-              <div><input type="radio" class="budget-opt" name="budget" id="b6"/><label class="budget-label" for="b6">Flexible</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b1" value="Under ₹10K / Under $150"/><label class="budget-label" for="b1" data-inr="Under ₹10K" data-usd="Under $150">Under ₹10K</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b2" value="₹10K – 25K / $150–350"/><label class="budget-label" for="b2" data-inr="₹10K – 25K" data-usd="$150–350">₹10K – 25K</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b3" value="₹25K – 50K / $350–700"/><label class="budget-label" for="b3" data-inr="₹25K – 50K" data-usd="$350–700">₹25K – 50K</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b4" value="₹50K – 1L / $700–1,500"/><label class="budget-label" for="b4" data-inr="₹50K – 1L" data-usd="$700–1,500">₹50K – 1L</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b5" value="₹1L+ / $1,500+"/><label class="budget-label" for="b5" data-inr="₹1L+" data-usd="$1,500+">₹1L+</label></div>
+              <div><input type="radio" class="budget-opt" name="budget" id="b6" value="Flexible"/><label class="budget-label" for="b6" data-inr="Flexible" data-usd="Flexible">Flexible</label></div>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Timeline</label>
-            <select class="form-select">
+            <select class="form-select" name="timeline">
               <option value="">Select timeline...</option>
               <option>ASAP</option>
               <option>1 – 2 Weeks</option>
@@ -703,10 +719,11 @@ footer {
 
           <div class="form-group">
             <label class="form-label">Project Details</label>
-            <textarea class="form-textarea" placeholder="Tell me about your project, goals, and anything else I should know..."></textarea>
+            <textarea class="form-textarea" name="message" placeholder="Tell me about your project, goals, and anything else I should know..."></textarea>
           </div>
 
           <button type="submit" class="submit-btn" id="submit-btn">Send Message →</button>
+          <p id="form-status" style="margin-top:12px;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.05em;display:none;"></p>
 
         </form>
       </div>
@@ -851,9 +868,26 @@ footer {
   }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
   reveals.forEach(function(el) { observer.observe(el); });
 
+  /* ── BUDGET CURRENCY TOGGLE ── */
+  var miniToggle = document.getElementById('currency-toggle-mini');
+  if (miniToggle) {
+    var budgetLabels = document.querySelectorAll('.budget-label[data-inr][data-usd]');
+    var miniBtns = miniToggle.querySelectorAll('.currency-btn-mini');
+    miniToggle.addEventListener('click', function(e) {
+      var btn = e.target.closest('.currency-btn-mini');
+      if (!btn) return;
+      var currency = btn.getAttribute('data-currency');
+      miniBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
+      budgetLabels.forEach(function(el) {
+        el.textContent = currency === 'usd' ? el.getAttribute('data-usd') : el.getAttribute('data-inr');
+      });
+    });
+  }
+
   /* ── CONTACT FORM SUBMIT ── */
   var form = document.getElementById('contact-form');
   var submitBtn = document.getElementById('submit-btn');
+  var statusEl = document.getElementById('form-status');
   if (form && submitBtn) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -861,15 +895,40 @@ footer {
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
       submitBtn.style.opacity = '.6';
-      setTimeout(function() {
-        submitBtn.textContent = '✓ Message Sent!';
+      if (statusEl) { statusEl.style.display = 'none'; }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          submitBtn.textContent = '✓ Message Sent!';
+          submitBtn.style.opacity = '1';
+          form.reset();
+          if (statusEl) {
+            statusEl.textContent = "Got it — I'll get back to you within 24 hours.";
+            statusEl.style.color = 'var(--muted)';
+            statusEl.style.display = 'block';
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function() {
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
-        form.reset();
+        if (statusEl) {
+          statusEl.innerHTML = "Something went wrong. Please email <a href=\"mailto:trondevelops@gmail.com\" style=\"color:var(--text);\">trondevelops@gmail.com</a> or use WhatsApp instead.";
+          statusEl.style.color = '#b91c1c';
+          statusEl.style.display = 'block';
+        }
+      }).finally(function() {
         setTimeout(function() {
           submitBtn.textContent = orig;
           submitBtn.disabled = false;
         }, 3500);
-      }, 1400);
+      });
     });
   }
 
