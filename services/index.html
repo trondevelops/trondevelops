@@ -10,6 +10,11 @@
 <meta property="og:type" content="website"/>
 <meta name="robots" content="index, follow"/>
 <title>Services — Tron Develops</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -598,6 +603,8 @@ footer {
 @media (max-width:900px) {
   .service-detail { grid-template-columns:1fr; gap:40px; }
   .service-detail.reverse { direction:ltr; }
+  .service-detail > *:first-child { order:2; }
+  .service-detail > .svc-visual { order:1; }
   .pricing-grid { grid-template-columns:1fr; }
   .faq-grid { grid-template-columns:1fr; }
   .cta-inner-grid { grid-template-columns:1fr; gap:36px; }
@@ -685,8 +692,8 @@ footer {
       </div>
       <div class="hero-meta-divider"></div>
       <div class="hero-meta-item">
-        <span>Projects Done</span>
-        <strong>50+</strong>
+        <span>Approach</span>
+        <strong>Founder-Led</strong>
       </div>
       <div class="hero-meta-divider"></div>
       <div class="hero-meta-item">
@@ -1256,7 +1263,6 @@ footer {
     <span class="footer-copy">© 2026 Tron Develops · Founded by <a href="/about/">Uzaid Bhat</a> · Srinagar, Kashmir</span>
     <div class="footer-socials">
       <a href="https://in.linkedin.com/in/uzaid-bhat" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://trondevelops.github.io/trondevelops/" target="_blank" rel="noopener">GitHub</a>
       <a href="/contact/">Contact</a>
     </div>
   </div>
