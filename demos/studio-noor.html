@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Studio Noor — Salon &amp; Spa, Srinagar</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+
+:root{
+  --paper:    #ffffff;
+  --paper2:   #f0efec;
+  --ink:      #0a0a0a;
+  --ink2:     #262422;
+  --rose:     #c23b2f;
+  --rose2:    #e0574a;
+  --clay:     #8a6a52;
+  --muted:    rgba(10,10,10,.55);
+  --muted2:   rgba(10,10,10,.32);
+  --line:     rgba(10,10,10,.12);
+  --ok:       #1c1917;
+  --max-w:    1140px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Inter',sans-serif; font-weight:400; line-height:1.6;
+  overflow-x:hidden;
+}
+.container{max-width:var(--max-w); margin:0 auto; padding:0 clamp(24px,5vw,64px);}
+.section{padding:clamp(64px,9vw,110px) 0;}
+a{color:inherit;}
+button{font:inherit; cursor:pointer;}
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--rose);
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--rose2);}
+.serif{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;}
+
+/* ============ NAV ============ */
+nav{
+  position:sticky; top:0; z-index:900;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px clamp(24px,5vw,64px);
+  background:rgba(255,255,255,.92); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-word{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.5rem; text-decoration:none; color:var(--ink);}
+.hamburger{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.hamburger span{width:14px; height:1.5px; background:var(--ink);}
+.nav-cta{
+  padding:12px 26px; background:var(--ink); color:var(--paper); border-radius:50px;
+  font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:none; transition:transform .2s;
+}
+.nav-cta:hover{transform:translateY(-2px);}
+
+.nav-overlay{
+  position:fixed; inset:0; background:var(--ink); z-index:950;
+  display:flex; flex-direction:column; justify-content:center; padding:60px clamp(24px,6vw,80px);
+  transform:translateY(-100%); transition:transform .45s cubic-bezier(.7,0,.3,1);
+}
+.nav-overlay.open{transform:translateY(0);}
+.nav-overlay-close{
+  position:absolute; top:32px; right:32px; width:42px; height:42px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.25); color:#fff; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center; background:none;
+}
+.nav-overlay a{
+  font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(2.4rem,6vw,4.4rem); color:#fff;
+  padding:10px 0; text-decoration:none; display:block; transition:color .2s;
+}
+.nav-overlay a:hover{color:var(--rose2);}
+.nav-overlay-meta{margin-top:36px; font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.1em; color:rgba(255,255,255,.4); text-transform:uppercase;}
+
+/* ============ HERO ============ */
+#hero{padding:clamp(40px,6vw,64px) 0 0;}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:0; align-items:stretch; min-height:640px;}
+.hero-text-col{padding:clamp(40px,6vw,60px) clamp(24px,5vw,64px) clamp(40px,6vw,60px) clamp(24px,5vw,64px);}
+.hero-h1{font-size:clamp(3rem,7vw,5.6rem); line-height:.98; letter-spacing:-.01em;}
+.hero-h1 .weight{font-family:'Inter',sans-serif; font-style:normal; font-weight:600; letter-spacing:-.02em;}
+.hero-sub{margin-top:26px; max-width:420px; font-size:1.02rem; color:var(--muted); line-height:1.85;}
+.hero-btns{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:15px 30px; border-radius:50px;
+  font-family:'DM Mono',monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:none; border:none; transition:all .25s;
+}
+.btn-primary{background:var(--rose); color:var(--paper);}
+.btn-primary:hover{background:var(--ink); transform:translateY(-2px);}
+.btn-outline{background:transparent; color:var(--ink); border:1.5px solid var(--ink);}
+.btn-outline:hover{background:var(--ink); color:var(--paper);}
+.hero-side{border-top:1px solid var(--line); padding-top:32px; margin-top:36px; display:flex; gap:32px; flex-wrap:wrap;}
+.hero-side-item{margin-bottom:0;}
+.hero-side-item span{display:block; font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted2); margin-bottom:6px;}
+.hero-side-item strong{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.3rem; font-weight:400;}
+
+.hero-visual{
+  position:relative; overflow:hidden; background:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-visual-bg{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 65% 30%, rgba(194,59,47,.55) 0%, transparent 55%),
+    radial-gradient(circle at 30% 80%, rgba(255,255,255,.08) 0%, transparent 50%),
+    linear-gradient(160deg, #1a1817 0%, #0a0a0a 70%);
+}
+.hero-visual-grain{position:absolute; inset:0; opacity:.5; mix-blend-mode:overlay;
+  background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);}
+.hero-visual-mark{
+  position:relative; z-index:1; font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;
+  font-size:clamp(9rem,16vw,14rem); color:rgba(255,255,255,.92); line-height:1;
+}
+.hero-visual-tag{
+  position:absolute; bottom:32px; left:32px; z-index:1;
+  font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+/* ============ SERVICES ============ */
+.section-alt{background:var(--ink); color:var(--paper);}
+.services-head{margin-bottom:52px;}
+.section-title{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(2.1rem,4.6vw,3.4rem); line-height:1.05;}
+.section-sub{color:var(--muted); font-size:1rem; max-width:440px; margin-top:14px; line-height:1.85;}
+.section-alt .section-sub{color:rgba(246,241,234,.6);}
+.svc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(246,241,234,.15); border:1px solid rgba(246,241,234,.15);}
+.svc-card{background:var(--ink); padding:36px 28px;}
+.svc-card-icon{font-size:1.5rem; margin-bottom:22px; color:var(--rose2);}
+.svc-card-name{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:1.35rem; margin-bottom:10px;}
+.svc-card-desc{font-size:.85rem; color:rgba(246,241,234,.55); line-height:1.7; margin-bottom:18px;}
+.svc-card-price{font-family:'DM Mono',monospace; font-size:.68rem; color:var(--rose2); letter-spacing:.04em;}
+
+/* ============ BOOKING WIDGET ============ */
+.book-wrap{
+  background:var(--paper2); border:1px solid var(--line); border-radius:24px;
+  padding:clamp(28px,5vw,56px); max-width:920px; margin:0 auto;
+}
+.book-steps{display:flex; justify-content:center; gap:0; margin-bottom:44px;}
+.book-step{display:flex; align-items:center; gap:10px;}
+.book-step-num{
+  width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'DM Mono',monospace; font-size:.68rem; border:1.5px solid var(--line); color:var(--muted2);
+  transition:all .25s;
+}
+.book-step.active .book-step-num{background:var(--rose); border-color:var(--rose); color:var(--paper);}
+.book-step.done .book-step-num{background:var(--ok); border-color:var(--ok); color:var(--paper);}
+.book-step-label{font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted2);}
+.book-step.active .book-step-label{color:var(--ink);}
+.book-step-line{width:44px; height:1px; background:var(--line); margin:0 12px;}
+
+.book-panel{display:none;}
+.book-panel.active{display:block; animation:fadein .35s ease;}
+@keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+.book-panel-title{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.7rem; margin-bottom:24px; text-align:center;}
+
+.svc-options{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+.opt-card{
+  border:1.5px solid var(--line); border-radius:14px; padding:22px; background:var(--paper);
+  display:flex; justify-content:space-between; align-items:center; transition:all .2s; text-align:left;
+}
+.opt-card:hover{border-color:var(--rose2);}
+.opt-card.selected{border-color:var(--rose); background:#fbf6f0; box-shadow:0 0 0 3px rgba(169,115,108,.12);}
+.opt-card-name{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.15rem; margin-bottom:4px;}
+.opt-card-meta{font-family:'DM Mono',monospace; font-size:.62rem; color:var(--muted2);}
+.opt-card-price{font-family:'DM Mono',monospace; font-size:.72rem; color:var(--rose);}
+
+.stylist-options{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+.stylist-card{
+  border:1.5px solid var(--line); border-radius:14px; padding:24px 18px; background:var(--paper);
+  text-align:center; transition:all .2s;
+}
+.stylist-card:hover{border-color:var(--rose2);}
+.stylist-card.selected{border-color:var(--rose); background:#fbf6f0; box-shadow:0 0 0 3px rgba(169,115,108,.12);}
+.stylist-avatar{
+  width:52px; height:52px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
+  font-family:'Instrument Serif',serif; font-style:italic; font-size:1.3rem; color:#fff;
+}
+.stylist-name{font-weight:600; font-size:.92rem; margin-bottom:4px;}
+.stylist-role{font-family:'DM Mono',monospace; font-size:.58rem; color:var(--muted2); text-transform:uppercase; letter-spacing:.04em;}
+
+.date-strip{display:flex; gap:10px; overflow-x:auto; padding-bottom:8px; margin-bottom:32px;}
+.date-chip{
+  flex-shrink:0; width:64px; padding:14px 0; border-radius:14px; border:1.5px solid var(--line); background:var(--paper);
+  text-align:center; transition:all .2s;
+}
+.date-chip:hover{border-color:var(--rose2);}
+.date-chip.selected{border-color:var(--rose); background:var(--rose); color:#fff;}
+.date-chip-day{font-family:'DM Mono',monospace; font-size:.56rem; text-transform:uppercase; opacity:.7; margin-bottom:4px;}
+.date-chip-num{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.3rem;}
+
+.time-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+.time-slot{
+  padding:13px 0; border-radius:10px; border:1.5px solid var(--line); background:var(--paper);
+  font-family:'DM Mono',monospace; font-size:.72rem; text-align:center; transition:all .2s;
+}
+.time-slot:hover:not(.disabled){border-color:var(--rose2);}
+.time-slot.selected{border-color:var(--rose); background:var(--rose); color:#fff;}
+.time-slot.disabled{opacity:.3; cursor:not-allowed; text-decoration:line-through;}
+
+.confirm-summary{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:30px; margin-bottom:28px;}
+.summary-row{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line);}
+.summary-row:last-child{border-bottom:none;}
+.summary-label{font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted2);}
+.summary-val{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.05rem;}
+.confirm-name-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:28px;}
+.book-input{
+  width:100%; background:var(--paper); border:1.5px solid var(--line); border-radius:10px;
+  padding:13px 16px; font-family:'Inter',sans-serif; font-size:.9rem; color:var(--ink); outline:none;
+}
+.book-input:focus{border-color:var(--rose);}
+
+.book-nav{display:flex; justify-content:space-between; margin-top:36px;}
+.book-nav-btn{
+  padding:14px 30px; border-radius:50px; border:1.5px solid var(--ink); background:transparent;
+  font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink);
+  transition:all .2s;
+}
+.book-nav-btn:hover{background:var(--ink); color:var(--paper);}
+.book-nav-btn.primary{background:var(--rose); border-color:var(--rose); color:#fff;}
+.book-nav-btn.primary:hover{background:var(--ink); border-color:var(--ink);}
+.book-nav-btn:disabled{opacity:.35; cursor:not-allowed;}
+.book-nav-btn:disabled:hover{background:transparent; color:var(--ink);}
+
+.book-success{text-align:center; padding:20px 0;}
+.book-success-icon{
+  width:64px; height:64px; border-radius:50%; background:var(--ok); color:#fff;
+  display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.6rem;
+}
+.book-success-title{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.9rem; margin-bottom:12px;}
+.book-success-text{color:var(--muted); max-width:360px; margin:0 auto 28px; line-height:1.75;}
+
+/* ============ GALLERY ============ */
+.gal-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+.gal-tile{aspect-ratio:.85; border-radius:16px; display:flex; align-items:flex-end; padding:20px; position:relative; overflow:hidden;}
+.gal-tile span{font-family:'Instrument Serif',serif; font-style:italic; font-size:1.05rem; color:#fff; position:relative; z-index:1;}
+.gal-tile::after{content:'';position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.5), transparent 60%);}
+.galA{background:radial-gradient(circle at 30% 20%, var(--rose2) 0%, var(--rose) 70%);}
+.galB{background:radial-gradient(circle at 70% 30%, #d9c8b8 0%, var(--clay) 70%);}
+.galC{background:radial-gradient(circle at 40% 70%, #6b5a4d 0%, var(--ink2) 70%);}
+.galD{background:radial-gradient(circle at 60% 40%, var(--ink2) 0%, var(--ink) 70%);}
+
+/* ============ FOOTER ============ */
+footer{padding:44px 0 28px; border-top:1px solid var(--line);}
+.footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+.footer-copy{font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.05em; color:var(--muted2);}
+.demo-badge{
+  position:fixed; bottom:20px; left:20px; z-index:999;
+  background:var(--ink); color:var(--paper); font-family:'DM Mono',monospace;
+  font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:9px 16px; border-radius:50px; box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr; gap:0; min-height:auto;}
+  .hero-text-col{padding:32px 24px;}
+  .hero-visual{height:340px;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .svc-options,.stylist-options{grid-template-columns:1fr 1fr;}
+  .time-grid{grid-template-columns:repeat(3,1fr);}
+  .gal-grid{grid-template-columns:1fr 1fr;}
+  .confirm-name-row{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .nav-links{display:none;}
+  .svc-grid{grid-template-columns:1fr;}
+  .stylist-options{grid-template-columns:1fr;}
+  .time-grid{grid-template-columns:repeat(2,1fr);}
+  .book-step-label{display:none;}
+  .book-step-line{width:20px; margin:0 6px;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-badge">Demo Concept — Tron Develops</div>
+
+<nav>
+  <a href="#" class="nav-word">Studio Noor</a>
+  <div style="display:flex; align-items:center; gap:14px;">
+    <a href="#book" class="nav-cta">Book Now</a>
+    <button class="hamburger" onclick="document.getElementById('navOverlay').classList.add('open')">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" onclick="document.getElementById('navOverlay').classList.remove('open')">✕</button>
+  <a href="#services" onclick="document.getElementById('navOverlay').classList.remove('open')">Services</a>
+  <a href="#book" onclick="document.getElementById('navOverlay').classList.remove('open')">Book</a>
+  <a href="#gallery" onclick="document.getElementById('navOverlay').classList.remove('open')">Gallery</a>
+  <div class="nav-overlay-meta">Jawahar Nagar, Srinagar · 10 AM – 8 PM</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-text-col">
+      <div class="eyebrow">Studio Noor · Salon &amp; Spa · Srinagar</div>
+      <h1 class="hero-h1" style="margin-top:20px;"><span class="serif">Look good,</span><br><span class="weight">feel unbothered.</span></h1>
+      <p class="hero-sub">Hair, colour, and skin — done properly, by people who actually listen to what you want. Book online in under a minute.</p>
+      <div class="hero-btns">
+        <a href="#book" class="btn btn-primary">Book an Appointment →</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+      <div class="hero-side">
+        <div class="hero-side-item"><span>Est.</span><strong>Independent Studio</strong></div>
+        <div class="hero-side-item"><span>Open</span><strong>10 AM – 8 PM</strong></div>
+        <div class="hero-side-item"><span>Located</span><strong>Jawahar Nagar, Srinagar</strong></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-visual-grain"></div>
+      <div class="hero-visual-mark">N</div>
+      <div class="hero-visual-tag">Studio Noor — Est.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="eyebrow" style="color:var(--rose2);">What We Do</div>
+      <h2 class="section-title" style="margin-top:14px;">Services</h2>
+      <p class="section-sub">Every service is bookable online — pick a slot, no back-and-forth calls.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-card-icon">✂</div>
+        <div class="svc-card-name">Hair &amp; Styling</div>
+        <p class="svc-card-desc">Cuts, blowouts, and styling for every hair type and occasion.</p>
+        <div class="svc-card-price">From ₹600</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">◐</div>
+        <div class="svc-card-name">Colour</div>
+        <p class="svc-card-desc">Global colour, balayage, and root touch-ups with premium products.</p>
+        <div class="svc-card-price">From ₹2,200</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">✦</div>
+        <div class="svc-card-name">Skin &amp; Spa</div>
+        <p class="svc-card-desc">Facials, cleanups, and treatments tailored to your skin.</p>
+        <div class="svc-card-price">From ₹1,200</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">◆</div>
+        <div class="svc-card-name">Bridal</div>
+        <p class="svc-card-desc">Full bridal packages — trial included, day-of team on request.</p>
+        <div class="svc-card-price">From ₹15,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section" id="book">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="eyebrow" style="justify-content:center;">Reserve Your Slot</div>
+      <h2 class="section-title" style="margin-top:14px;">Book an Appointment</h2>
+    </div>
+
+    <div class="book-wrap">
+      <div class="book-steps" id="bookSteps"></div>
+
+      <!-- STEP 1: SERVICE -->
+      <div class="book-panel active" data-step="1">
+        <div class="book-panel-title">Choose a service</div>
+        <div class="svc-options" id="svcOptions">
+          <button class="opt-card" data-name="Haircut &amp; Style" data-price="₹600" data-dur="45 min">
+            <div><div class="opt-card-name">Haircut &amp; Style</div><div class="opt-card-meta">45 min</div></div>
+            <div class="opt-card-price">₹600</div>
+          </button>
+          <button class="opt-card" data-name="Balayage Colour" data-price="₹3,500" data-dur="2.5 hrs">
+            <div><div class="opt-card-name">Balayage Colour</div><div class="opt-card-meta">2.5 hrs</div></div>
+            <div class="opt-card-price">₹3,500</div>
+          </button>
+          <button class="opt-card" data-name="Signature Facial" data-price="₹1,800" data-dur="1 hr">
+            <div><div class="opt-card-name">Signature Facial</div><div class="opt-card-meta">1 hr</div></div>
+            <div class="opt-card-price">₹1,800</div>
+          </button>
+          <button class="opt-card" data-name="Bridal Trial" data-price="₹4,500" data-dur="3 hrs">
+            <div><div class="opt-card-name">Bridal Trial</div><div class="opt-card-meta">3 hrs</div></div>
+            <div class="opt-card-price">₹4,500</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: STYLIST -->
+      <div class="book-panel" data-step="2">
+        <div class="book-panel-title">Pick your stylist</div>
+        <div class="stylist-options" id="stylistOptions">
+          <button class="stylist-card" data-name="Aisha">
+            <div class="stylist-avatar" style="background:var(--rose);">A</div>
+            <div class="stylist-name">Aisha</div>
+            <div class="stylist-role">Senior Stylist</div>
+          </button>
+          <button class="stylist-card" data-name="Zara">
+            <div class="stylist-avatar" style="background:var(--clay);">Z</div>
+            <div class="stylist-name">Zara</div>
+            <div class="stylist-role">Colour Specialist</div>
+          </button>
+          <button class="stylist-card" data-name="No Preference">
+            <div class="stylist-avatar" style="background:var(--ink2);">?</div>
+            <div class="stylist-name">No Preference</div>
+            <div class="stylist-role">Next Available</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: DATE & TIME -->
+      <div class="book-panel" data-step="3">
+        <div class="book-panel-title">Choose date &amp; time</div>
+        <div class="date-strip" id="dateStrip"></div>
+        <div class="time-grid" id="timeGrid"></div>
+      </div>
+
+      <!-- STEP 4: CONFIRM -->
+      <div class="book-panel" data-step="4">
+        <div class="book-panel-title">Confirm your booking</div>
+        <div class="confirm-summary" id="confirmSummary"></div>
+        <div class="confirm-name-row">
+          <input class="book-input" id="custName" placeholder="Your name"/>
+          <input class="book-input" id="custPhone" placeholder="Phone number"/>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="book-panel" data-step="5">
+        <div class="book-success">
+          <div class="book-success-icon">✓</div>
+          <div class="book-success-title">You're booked!</div>
+          <p class="book-success-text" id="successText">We'll see you then. A confirmation would normally be sent by SMS on a live site.</p>
+          <button class="book-nav-btn" onclick="resetBooking()">Book Another Appointment</button>
+        </div>
+      </div>
+
+      <div class="book-nav" id="bookNav">
+        <button class="book-nav-btn" id="btnBack" onclick="prevStep()" disabled>← Back</button>
+        <button class="book-nav-btn primary" id="btnNext" onclick="nextStep()" disabled>Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="eyebrow">The Studio</div>
+    <h2 class="section-title" style="margin-top:14px; margin-bottom:36px;">Inside Studio Noor</h2>
+    <div class="gal-grid">
+      <div class="gal-tile galA"><span>The Chair</span></div>
+      <div class="gal-tile galB"><span>Colour Bar</span></div>
+      <div class="gal-tile galC"><span>Wash Lounge</span></div>
+      <div class="gal-tile galD"><span>Reception</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span class="footer-copy">© Studio Noor · Srinagar, Kashmir</span>
+      <span class="footer-copy">Concept design by Tron Develops</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const state = { step:1, service:null, stylist:null, date:null, time:null };
+const totalSteps = 4;
+
+const stepLabels = ['Service','Stylist','Date &amp; Time','Confirm'];
+const stepsEl = document.getElementById('bookSteps');
+function renderSteps(){
+  stepsEl.innerHTML = '';
+  for(let i=1;i<=totalSteps;i++){
+    const wrap = document.createElement('div');
+    wrap.style.display='flex'; wrap.style.alignItems='center';
+    const cls = i < state.step ? 'done' : (i===state.step ? 'active' : '');
+    wrap.innerHTML = `<div class="book-step ${cls}"><div class="book-step-num">${i < state.step ? '✓' : i}</div><div class="book-step-label">${['Service','Stylist','Date & Time','Confirm'][i-1]}</div></div>${i<totalSteps?'<div class="book-step-line"></div>':''}`;
+    stepsEl.appendChild(wrap);
+  }
+}
+
+// build date strip - next 7 days
+const dateStrip = document.getElementById('dateStrip');
+const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const today = new Date();
+for(let i=0;i<7;i++){
+  const d = new Date(today); d.setDate(today.getDate()+i);
+  const chip = document.createElement('button');
+  chip.className='date-chip';
+  chip.dataset.date = d.toDateString();
+  chip.innerHTML = `<div class="date-chip-day">${i===0?'Today':dayNames[d.getDay()]}</div><div class="date-chip-num">${d.getDate()}</div>`;
+  chip.onclick = () => {
+    document.querySelectorAll('.date-chip').forEach(c=>c.classList.remove('selected'));
+    chip.classList.add('selected');
+    state.date = chip.dataset.date;
+    updateNext();
+  };
+  dateStrip.appendChild(chip);
+}
+
+// build time slots
+const timeGrid = document.getElementById('timeGrid');
+const times = ['10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM'];
+const bookedSlots = ['12:00 PM','3:00 PM'];
+times.forEach(t=>{
+  const slot = document.createElement('button');
+  slot.className = 'time-slot' + (bookedSlots.includes(t) ? ' disabled' : '');
+  slot.textContent = t;
+  if(!bookedSlots.includes(t)){
+    slot.onclick = () => {
+      document.querySelectorAll('.time-slot').forEach(s=>s.classList.remove('selected'));
+      slot.classList.add('selected');
+      state.time = t;
+      updateNext();
+    };
+  }
+  timeGrid.appendChild(slot);
+});
+
+// service selection
+document.querySelectorAll('#svcOptions .opt-card').forEach(card=>{
+  card.onclick = () => {
+    document.querySelectorAll('#svcOptions .opt-card').forEach(c=>c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.service = { name:card.dataset.name, price:card.dataset.price, dur:card.dataset.dur };
+    updateNext();
+  };
+});
+
+// stylist selection
+document.querySelectorAll('#stylistOptions .stylist-card').forEach(card=>{
+  card.onclick = () => {
+    document.querySelectorAll('#stylistOptions .stylist-card').forEach(c=>c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.stylist = card.dataset.name;
+    updateNext();
+  };
+});
+
+function updateNext(){
+  const btn = document.getElementById('btnNext');
+  if(state.step===1) btn.disabled = !state.service;
+  else if(state.step===2) btn.disabled = !state.stylist;
+  else if(state.step===3) btn.disabled = !(state.date && state.time);
+  else if(state.step===4) btn.disabled = false;
+}
+
+function showStep(n){
+  document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.book-panel[data-step="${n}"]`).classList.add('active');
+  document.getElementById('btnBack').disabled = (n===1);
+  document.getElementById('bookNav').style.display = (n===5) ? 'none' : 'flex';
+  renderSteps();
+  updateNext();
+  if(n===4) renderSummary();
+}
+
+function nextStep(){
+  if(state.step < totalSteps){
+    state.step++;
+    showStep(state.step);
+  } else {
+    // final confirm
+    const name = document.getElementById('custName').value || 'Guest';
+    document.getElementById('successText').textContent =
+      `${name}, you're set for ${state.service.name} with ${state.stylist} on ${state.date} at ${state.time}. A confirmation would normally be sent by SMS on a live site.`;
+    document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelector('.book-panel[data-step="5"]').classList.add('active');
+    document.getElementById('bookNav').style.display = 'none';
+  }
+}
+function prevStep(){
+  if(state.step > 1){
+    state.step--;
+    showStep(state.step);
+  }
+}
+function renderSummary(){
+  document.getElementById('confirmSummary').innerHTML = `
+    <div class="summary-row"><span class="summary-label">Service</span><span class="summary-val">${state.service.name}</span></div>
+    <div class="summary-row"><span class="summary-label">Stylist</span><span class="summary-val">${state.stylist}</span></div>
+    <div class="summary-row"><span class="summary-label">Date</span><span class="summary-val">${state.date}</span></div>
+    <div class="summary-row"><span class="summary-label">Time</span><span class="summary-val">${state.time}</span></div>
+    <div class="summary-row"><span class="summary-label">Est. Price</span><span class="summary-val">${state.service.price}</span></div>
+  `;
+}
+function resetBooking(){
+  state.step=1; state.service=null; state.stylist=null; state.date=null; state.time=null;
+  document.querySelectorAll('.opt-card,.stylist-card,.date-chip,.time-slot').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('custName').value=''; document.getElementById('custPhone').value='';
+  document.getElementById('bookNav').style.display='flex';
+  showStep(1);
+}
+
+renderSteps();
+</script>
+
+</body>
+</html>
