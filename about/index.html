@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="About Tron Develops — A digital agency founded in Srinagar, Kashmir. We build, grow, and scale hospitality brands through web development, SEO, content writing, and social media strategy."/>
-<meta property="og:title" content="About — Tron Develops"/>
+<meta name="description" content="Contact Tron Develops — Web development, SEO, content writing, and social media strategy. Based in Srinagar, Kashmir."/>
+<meta property="og:title" content="Contact — Tron Develops"/>
 <meta property="og:type" content="website"/>
 <meta name="robots" content="index, follow"/>
-<title>About — Tron Develops</title>
+<title>Contact — Tron Develops</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -26,16 +26,15 @@
 </div>
 <div id="pt"></div>
 
-<!-- NAV -->
 <nav id="main-nav">
   <a href="/" class="nav-logo"><span class="nav-logo-mark"><span>TD</span></span>Tron Develops</a>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
-    <li><a href="/about/" class="active">About</a></li>
+    <li><a href="/about/">About</a></li>
     <li><a href="/services/">Services</a></li>
     <li><a href="/projects/">Projects</a></li>
     <li><a href="/demos/">Demos</a></li>
-    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/contact/" class="active">Contact</a></li>
   </ul>
   <a href="/contact/" class="nav-cta-btn desktop-only">Start a Project</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -45,200 +44,87 @@
   <a href="/contact/" class="nav-cta-btn">Start a Project</a>
 </div>
 
-<!-- ═══════════════════════════════════════
-     HERO — split wordmark + intro
-═══════════════════════════════════════ -->
-<header class="about-hero pattern-d">
+<header class="contact-hero pattern">
   <div class="wrap">
-    <div class="hero-split reveal">
-      <span>BUILT TO BUILD</span>
-      <span class="pill">Founder-led, Srinagar-built</span>
-      <span>DRIVEN&nbsp;BY&nbsp;CRAFT</span>
-    </div>
-    <div class="about-intro reveal reveal-d1">
-      <div class="about-avatar"><span>UB</span></div>
-      <p class="highlight-text" id="hl-para" data-highlight>Tron Develops was founded by Uzaid Bhat with one clear goal: give hospitality businesses a digital presence that actually works, not just looks good. It started as a one-person operation in Srinagar, and it still runs lean and founder-led.</p>
-    </div>
+    <span class="eyebrow reveal">Contact</span>
+    <h1 class="reveal reveal-d1">Let's build<br>something <em>great.</em></h1>
+    <p class="reveal reveal-d2">Tell us what you need. We'll tell you what it'll take. No pressure, no fluff.</p>
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════
-     STATS
-═══════════════════════════════════════ -->
-<section class="about-stats">
-  <div class="wrap">
-    <span class="eyebrow reveal">By the numbers</span>
-    <div class="stats-grid4">
-      <div class="stat-card reveal reveal-d1">
-        <div class="num">100<small>%</small></div>
-        <div class="lbl">Custom Built</div>
-        <div class="desc">Every project is designed and coded for that specific business — never a reskinned template.</div>
-      </div>
-      <div class="stat-card reveal reveal-d2">
-        <div class="num">1<small>+ yr</small></div>
-        <div class="lbl">In Business</div>
-        <div class="desc">Founded in Srinagar, Kashmir, and still growing one project at a time.</div>
-      </div>
-      <div class="stat-card reveal reveal-d3">
-        <div class="num">Solo</div>
-        <div class="lbl">Founder-Led</div>
-        <div class="desc">You talk directly to the person doing the work — no account managers, no hand-offs.</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="num">6</div>
-        <div class="lbl">Disciplines Covered</div>
-        <div class="desc">Web, SEO, content, social, strategy and design — connected under one roof.</div>
+<section class="contact-sec">
+  <div class="wrap contact-grid">
+
+    <div class="contact-info reveal">
+      <div class="info-card"><div class="info-label">Email</div><div class="info-val"><a href="mailto:trondevelops@gmail.com">trondevelops@gmail.com</a></div></div>
+      <div class="info-card"><div class="info-label">Phone</div><div class="info-val"><a href="tel:+919622466941">+91 96224 66941</a></div></div>
+      <div class="info-card"><div class="info-label">Location</div><div class="info-val">Soura, Srinagar, Kashmir, India</div></div>
+      <div class="info-card"><div class="info-label">Availability</div><div class="avail-row"><div class="avail-dot"></div><div class="info-val">Available for new projects</div></div></div>
+      <div class="info-card"><div class="info-label">Response Time</div><div class="info-val">Within 24 hours</div></div>
+      <div class="platforms-wrap">
+        <div class="platforms-label">Also find me on</div>
+        <a href="https://linkedin.com/in/uzaid-bhat/" target="_blank" rel="noopener" class="platform-btn">LinkedIn</a>
       </div>
     </div>
+
+    <div class="form-card reveal reveal-d1">
+      <div class="form-card-label">Book a Project</div>
+      <form id="contact-form" action="https://formspree.io/f/xyegdggo" method="POST">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Your Name</label><input type="text" name="name" class="form-input" placeholder="Your name" required/></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="you@example.com" required/></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Needed</label>
+          <select class="form-select" name="service">
+            <option value="">Select a service...</option>
+            <option>Web Development</option><option>SEO</option><option>Content Writing</option><option>Social Media Strategy</option><option>Full Growth Package</option><option>Other / Custom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Budget Range</label>
+          <div class="currency-toggle-mini" id="currency-toggle-mini" role="group" aria-label="Currency selector">
+            <button type="button" class="currency-btn-mini active" data-currency="inr">₹ INR</button>
+            <button type="button" class="currency-btn-mini" data-currency="usd">$ USD</button>
+          </div>
+          <div class="budget-grid">
+            <div><input type="radio" class="budget-opt" name="budget" id="b1" value="Under ₹15K / Under $200"/><label class="budget-label" for="b1" data-inr="Under ₹15K" data-usd="Under $200">Under ₹15K</label></div>
+            <div><input type="radio" class="budget-opt" name="budget" id="b2" value="₹15K – 25K / $200–350"/><label class="budget-label" for="b2" data-inr="₹15K – 25K" data-usd="$200–350">₹15K – 25K</label></div>
+            <div><input type="radio" class="budget-opt" name="budget" id="b3" value="₹25K – 50K / $350–700"/><label class="budget-label" for="b3" data-inr="₹25K – 50K" data-usd="$350–700">₹25K – 50K</label></div>
+            <div><input type="radio" class="budget-opt" name="budget" id="b4" value="₹50K – 1L / $700–1,500"/><label class="budget-label" for="b4" data-inr="₹50K – 1L" data-usd="$700–1,500">₹50K – 1L</label></div>
+            <div><input type="radio" class="budget-opt" name="budget" id="b5" value="₹1L+ / $1,500+"/><label class="budget-label" for="b5" data-inr="₹1L+" data-usd="$1,500+">₹1L+</label></div>
+            <div><input type="radio" class="budget-opt" name="budget" id="b6" value="Flexible"/><label class="budget-label" for="b6" data-inr="Flexible" data-usd="Flexible">Flexible</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Timeline</label>
+          <select class="form-select" name="timeline">
+            <option value="">Select timeline...</option>
+            <option>ASAP</option><option>1 – 2 Weeks</option><option>1 Month</option><option>2 – 3 Months</option><option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Details</label>
+          <textarea class="form-textarea" name="message" placeholder="Tell me about your project, goals, and anything else I should know..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submit-btn">Send Message →</button>
+        <p id="form-status" style="margin-top:12px;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.05em;display:none;"></p>
+      </form>
+    </div>
+
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     BIO
-═══════════════════════════════════════ -->
-<section class="bio">
-  <div class="wrap bio-grid">
-    <div class="bio-copy reveal">
-      <p>That means no account managers, no hand-offs, no game of telephone. You work <strong>directly with the person building your project</strong> — from the first call to final delivery — across web development, SEO, content writing, and social media strategy.</p>
-      <p>Our roots are in Kashmir — our reach isn't. Whether you're launching, scaling, or repositioning, <strong>we build digital infrastructure that grows with you.</strong></p>
-      <div class="cta-strike-row" style="margin-top:8px;">
-        <a href="/contact/" class="say-hello">[ Work with us ]</a>
-        <a href="/projects/" style="font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mutedD);text-decoration:underline;">See our work</a>
-      </div>
-    </div>
-    <div class="bio-visual reveal reveal-d1">
-      <div class="code-lines"><i></i><i></i><i></i><i></i></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     WHO I BUILD FOR — numbered scroll list
-═══════════════════════════════════════ -->
-<section class="audience">
-  <div class="wrap">
-    <div class="audience-head reveal">
-      <span class="eyebrow" style="margin-bottom:0;">Who this is for</span>
-      <span class="eyebrow" style="margin-bottom:0;">Hospitality &amp; Local</span>
-    </div>
-    <div class="audience-list" id="aud-list">
-      <div class="aud-row"><span class="name">Guesthouses</span><span class="idx">(01)</span></div>
-      <div class="aud-row"><span class="name">Boutique Hotels</span><span class="idx">(02)</span></div>
-      <div class="aud-row"><span class="name">Cafés &amp; Restaurants</span><span class="idx">(03)</span></div>
-      <div class="aud-row"><span class="name">Homestays</span><span class="idx">(04)</span></div>
-      <div class="aud-row"><span class="name">Tour Operators</span><span class="idx">(05)</span></div>
-      <div class="aud-row"><span class="name">Studios &amp; Salons</span><span class="idx">(06)</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     WHAT SETS US APART (replaces awards)
-═══════════════════════════════════════ -->
-<section class="apart pattern">
-  <div class="wrap">
-    <div class="apart-head reveal">
-      <span class="eyebrow">Why us</span>
-      <h2>What sets Tron apart</h2>
-      <p>Most agencies either specialise too narrowly or spread too thin. Here's the model we built instead.</p>
-    </div>
-    <div class="apart-grid">
-      <div class="apart-item reveal">
-        <div class="apart-num">01</div>
-        <h3>Full Stack Under One Roof</h3>
-        <p>Web development, SEO, content writing, and social media strategy — all in-house. One team, one point of contact.</p>
-      </div>
-      <div class="apart-item reveal reveal-d1">
-        <div class="apart-num">02</div>
-        <h3>Craft Over Compromise</h3>
-        <p>One founder, deeply hands-on, across every discipline your project touches. Nothing ships without direct oversight.</p>
-      </div>
-      <div class="apart-item reveal">
-        <div class="apart-num">03</div>
-        <h3>Founder-Level Thinking</h3>
-        <p>We don't just execute briefs — we question them when it matters, before writing a line of code or copy.</p>
-      </div>
-      <div class="apart-item reveal reveal-d1">
-        <div class="apart-num">04</div>
-        <h3>Speed Without Shortcuts</h3>
-        <p>Lean team, no bureaucracy. We move faster than bloated agencies without cutting corners on quality.</p>
-      </div>
-      <div class="apart-item reveal">
-        <div class="apart-num">05</div>
-        <h3>Built in Kashmir, Built for the World</h3>
-        <p>We understand local market context and global digital standards. Our roots give us perspective.</p>
-      </div>
-      <div class="apart-item reveal reveal-d1">
-        <div class="apart-num">06</div>
-        <h3>We Stay After Delivery</h3>
-        <p>We don't disappear once a project ships. Most clients come back — that's our most honest metric.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     SKILLS & TOOLS
-═══════════════════════════════════════ -->
-<section class="skills">
-  <div class="wrap">
-    <h2 class="reveal">What we build &amp; how we build it</h2>
-    <div class="sub-label reveal">Services we deliver</div>
-    <div class="chip-row reveal reveal-d1">
-      <span class="chip">Web Development</span>
-      <span class="chip">SEO &amp; Search Optimization</span>
-      <span class="chip">Content Writing</span>
-      <span class="chip">Social Media Strategy</span>
-    </div>
-    <div class="sub-label reveal">Technologies &amp; platforms</div>
-    <div class="chip-row reveal reveal-d2">
-      <span class="chip">WordPress</span>
-      <span class="chip">HTML / CSS / JS</span>
-      <span class="chip">React</span>
-      <span class="chip">GitHub</span>
-      <span class="chip">Figma</span>
-      <span class="chip">Google Analytics</span>
-      <span class="chip">Search Console</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     MISSION / VALUES
-═══════════════════════════════════════ -->
-<section class="mission">
-  <div class="wrap">
-    <span class="eyebrow reveal">Mission</span>
-    <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.2vw,2.1rem);margin-bottom:40px;" class="reveal">What we stand for</h2>
-    <div class="mission-grid">
-      <div class="mission-card reveal"><span class="mission-icon">⚡</span><div class="mission-title">Innovation</div><p class="mission-desc">We stay ahead of trends so our clients don't have to.</p></div>
-      <div class="mission-card reveal reveal-d1"><span class="mission-icon">🎯</span><div class="mission-title">Quality</div><p class="mission-desc">No shortcuts. Every deliverable is something we're proud of.</p></div>
-      <div class="mission-card reveal reveal-d2"><span class="mission-icon">🤝</span><div class="mission-title">Client-Centered</div><p class="mission-desc">Your success is our success — every project matters.</p></div>
-      <div class="mission-card reveal reveal-d3"><span class="mission-icon">📈</span><div class="mission-title">Long-Term Growth</div><p class="mission-desc">We build relationships, not just deliverables.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     CTA + CLOSING
-═══════════════════════════════════════ -->
-<section class="cta-strike">
-  <div class="wrap">
-    <h2>Let's start<br>your project.</h2>
-    <div class="cta-strike-row">
-      <a href="/contact/" class="say-hello">[ Say hello ]</a>
-      <span class="cta-note">Usually replies within a day</span>
-    </div>
-  </div>
-</section>
 <section class="closing">
   <video class="closing-bg-video" autoplay muted loop playsinline poster="../assets/wave-bg-poster.jpg">
     <source src="../assets/wave-bg.mp4" type="video/mp4">
   </video>
-  <div class="wrap"><h2 class="reveal">Good websites<br>do the talking.</h2></div>
+  <div class="wrap">
+    <h2 class="reveal">Good websites<br>do the talking.</h2>
+    <p class="reveal reveal-d1">A rough brief is enough to get started.</p>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
