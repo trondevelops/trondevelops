@@ -4,7 +4,7 @@
 
 > A forward-thinking digital solutions agency dedicated to helping businesses, startups, and individuals transform their ideas into powerful online experiences.
 
-🌐 **Live Site:** [trondevelops.github.io/trondevelops](https://trondevelops.github.io/trondevelops/index.html)
+🌐 **Live Site:** [trondevelops.com](https://trondevelops.com)
 
 ---
 
