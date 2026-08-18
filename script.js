@@ -252,6 +252,63 @@
     });
   }
 
+  /* ---------- ANIMATED WAVE-DOT PATTERN (canvas, replaces static image) ---------- */
+  var waveSections = document.querySelectorAll('.pattern, .pattern-d');
+  if (waveSections.length && window.requestAnimationFrame) {
+    waveSections.forEach(function (section) {
+      var canvas = document.createElement('canvas');
+      canvas.className = 'wave-canvas';
+      section.insertBefore(canvas, section.firstChild);
+      var ctx = canvas.getContext('2d');
+      var isDark = section.classList.contains('pattern-d');
+      var rgb = isDark ? '255,255,255' : '17,17,16';
+      var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function resize() {
+        w = section.offsetWidth; h = section.offsetHeight;
+        canvas.width = Math.max(1, w * dpr);
+        canvas.height = Math.max(1, h * dpr);
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      var cols = 34, rows = 13;
+      var t = Math.random() * 1000;
+      var visible = true;
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { visible = e.isIntersecting; });
+      });
+      io2.observe(section);
+
+      function draw() {
+        requestAnimationFrame(draw);
+        if (!visible || w === 0 || h === 0) return;
+        t += 0.007;
+        ctx.clearRect(0, 0, w, h);
+        var spacingX = w / cols, spacingY = h / rows;
+        for (var i = 0; i <= cols; i++) {
+          for (var j = 0; j <= rows; j++) {
+            var nx = i / cols, ny = j / rows;
+            var wave = Math.sin(nx * 6 + t + ny * 2.2) * (h * 0.05) * (1 - ny * 0.35)
+                     + Math.cos(ny * 4 - t * 1.3 + nx * 2) * (h * 0.025);
+            var px = i * spacingX;
+            var py = j * spacingY + wave;
+            var alpha = 0.12 + 0.34 * Math.abs(Math.sin(nx * 4 + t * 0.8 + ny * 3));
+            var size = 0.8 + 1.3 * Math.abs(Math.sin(nx * 3 - t + ny));
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(' + rgb + ',' + alpha.toFixed(2) + ')';
+            ctx.arc(px, py, size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+      draw();
+    });
+  }
+
   /* ---------- PAGE TRANSITIONS ---------- */
   var pt = document.getElementById('pt');
   document.querySelectorAll('a').forEach(function (a) {
