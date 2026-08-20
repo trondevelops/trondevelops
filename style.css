@@ -806,7 +806,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 2
 /* ══════════════════════════════════════════
    BLOG (blog/index.html, blog/*/index.html)
 ══════════════════════════════════════════ */
-.blog-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 50px) 0 40px;}
+.blog-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 90px) 0 40px;}
 .blog-hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,6.4vw,4.2rem);line-height:1.05;letter-spacing:-.01em;max-width:720px;position:relative;z-index:1;}
 .blog-hero p{max-width:480px;color:var(--muted);font-size:1.02rem;margin-top:22px;position:relative;z-index:1;}
 
@@ -823,7 +823,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 2
 @media (max-width:700px){.blog-row{grid-template-columns:1fr;gap:8px;}.blog-row-arrow{display:none;}}
 
 /* Single post */
-.post-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 50px) 0 20px;}
+.post-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 90px) 0 20px;}
 .post-hero .back-link{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:28px;cursor:none;transition:color .2s;}
 .post-hero .back-link:hover{color:var(--text);}
 .post-hero .post-meta{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
