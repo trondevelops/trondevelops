@@ -806,9 +806,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 2
 /* ══════════════════════════════════════════
    BLOG (blog/index.html, blog/*/index.html)
 ══════════════════════════════════════════ */
-.blog-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 90px) 0 40px;}
-.blog-hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,6.4vw,4.2rem);line-height:1.05;letter-spacing:-.01em;max-width:720px;position:relative;z-index:1;}
-.blog-hero p{max-width:480px;color:var(--muted);font-size:1.02rem;margin-top:22px;position:relative;z-index:1;}
+.blog-hero{position:relative;overflow:hidden;background:var(--bg);padding:calc(var(--nav-h) + 60px) 0 30px;}
+.blog-hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.08;letter-spacing:-.01em;max-width:720px;position:relative;z-index:1;}
+.blog-hero p{max-width:480px;color:var(--muted);font-size:1.02rem;margin-top:20px;position:relative;z-index:1;}
 
 .blog-list{background:var(--bg);padding:20px 0 100px;}
 .blog-list-grid{display:flex;flex-direction:column;}
